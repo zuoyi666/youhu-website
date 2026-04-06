@@ -1,0 +1,40 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/manifesto.html",
+      "destination": "/manifesto",
+      "permanent": true
+    },
+    {
+      "source": "/product.html",
+      "destination": "/product",
+      "permanent": true
+    },
+    {
+      "source": "/founders.html",
+      "destination": "/founders",
+      "permanent": true
+    },
+    {
+      "source": "/apply.html",
+      "destination": "/apply",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    }
+  ]
+}

@@ -2,6 +2,9 @@
 
 Static bilingual marketing site for `youhu.space`.
 
+The site is intended to be served on Vercel with clean URLs such as `/apply`
+and `/manifesto`, while the source files remain flat `.html` files.
+
 ## Founder application delivery
 
 The application page now posts to `/api/apply`.
