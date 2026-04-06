@@ -1,0 +1,9 @@
+{
+  "name": "youhu-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Youhu bilingual founder website",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

@@ -70,7 +70,7 @@
           <p class="lang-en">We prioritize people who already use journaling, emotional tracking, therapy-adjacent tools, or self-reflection products in real life. This is not about selecting perfect users. It is about selecting deep ones.</p>
         </div>
 
-        <form class="form-panel" data-apply-form>
+        <form class="form-panel" data-apply-form novalidate>
           <div class="progress-track" aria-hidden="true">
             <div class="progress-fill" data-progress-fill></div>
           </div>
@@ -200,10 +200,14 @@
                 </label>
                 <input class="text-input" id="referral-code" name="referral_code" placeholder="YH7K2Q">
               </div>
+              <div class="input-row" style="display:none;" aria-hidden="true">
+                <label for="website">Website</label>
+                <input class="text-input" id="website" name="website" autocomplete="off" tabindex="-1">
+              </div>
             </div>
             <div class="form-note">
-              <span class="lang-zh">当前网站为静态版。点击提交后，会自动打开你的邮件应用，并把申请内容预填到发往 `support@youhu.space` 的邮件里。</span>
-              <span class="lang-en">This website is currently a static build. When you submit, it opens your mail app and pre-fills an email to `support@youhu.space` with your application content.</span>
+              <span class="lang-zh">默认会直接在站内提交到 `support@youhu.space`。如果当前环境尚未完成邮件配置，页面会自动回退为“复制申请内容 + 手动发送邮件”。</span>
+              <span class="lang-en">By default, the application submits inside the site and routes to `support@youhu.space`. If email delivery has not been configured in the current environment yet, the page automatically falls back to “copy the application + send manually.”</span>
             </div>
           </section>
 
@@ -217,25 +221,25 @@
               <span class="lang-en">Next</span>
             </button>
             <button class="button button-primary" type="submit" data-step-submit style="display:none;">
-              <span class="lang-zh">在邮件中提交申请</span>
-              <span class="lang-en">Submit via Email</span>
+              <span class="lang-zh">提交申请</span>
+              <span class="lang-en">Submit Application</span>
             </button>
           </div>
         </form>
 
         <div class="status-box" data-application-status>
-          <h3>
+          <h3 data-status-heading>
             <span class="lang-zh">申请草稿已生成。</span>
             <span class="lang-en">Your application draft is ready.</span>
           </h3>
-          <p class="lang-zh">如果邮件应用没有自动打开，你可以复制下面的内容，手动发送到 `support@youhu.space`。</p>
-          <p class="lang-en">If your mail app does not open automatically, copy the text below and send it manually to `support@youhu.space`.</p>
+          <p data-status-body class="lang-zh">如果邮件配置尚未完成，你可以复制下面的内容，手动发送到 `support@youhu.space`。</p>
+          <p data-status-body class="lang-en">If email delivery is not configured yet, copy the text below and send it manually to `support@youhu.space`.</p>
           <div class="status-actions">
             <button class="button button-secondary" type="button" data-copy-application>
               <span class="lang-zh">复制申请内容</span>
               <span class="lang-en">Copy Application</span>
             </button>
-            <a class="button button-ghost" href="mailto:support@youhu.space">support@youhu.space</a>
+            <a class="button button-ghost" href="mailto:support@youhu.space" data-mailto-link>support@youhu.space</a>
           </div>
           <div class="application-preview" data-application-preview></div>
         </div>
