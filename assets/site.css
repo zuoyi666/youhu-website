@@ -317,6 +317,46 @@ img {
   max-width: 10ch;
 }
 
+.hero-title {
+  margin: 22px 0 18px;
+  max-width: none;
+}
+
+.hero-title-zh,
+.hero-title-en {
+  display: block;
+}
+
+.hero-title-zh {
+  max-width: 6.4em;
+  font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+  font-weight: 600;
+  font-size: clamp(3rem, 5.4vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.hero-title-line + .hero-title-line {
+  margin-top: 0.02em;
+}
+
+.hero-title-line-shift {
+  padding-left: 0.16em;
+}
+
+.hero-title-line-deep {
+  padding-left: 0.46em;
+}
+
+.hero-title-en {
+  max-width: 10ch;
+}
+
 .hero-summary {
   max-width: 500px;
 }
@@ -1391,6 +1431,18 @@ img {
   .cta-copy h2 {
     max-width: none;
     font-size: clamp(2.45rem, 12vw, 3.4rem);
+  }
+
+  .hero-title-zh {
+    max-width: 5.8em;
+    font-size: clamp(2.6rem, 13vw, 3.7rem);
+    line-height: 1.06;
+    letter-spacing: -0.045em;
+  }
+
+  .hero-title-line-shift,
+  .hero-title-line-deep {
+    padding-left: 0;
   }
 
   .hero-visual {
