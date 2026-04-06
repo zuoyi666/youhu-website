@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youhu | Apply</title>
+  <meta name="description" content="Apply to become one of Youhu's first founders.">
+  <meta name="theme-color" content="#05111d">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body
+  data-lang="zh"
+  data-title-zh="Youhu | 创世申请"
+  data-title-en="Youhu | Founder Application"
+  data-description-zh="回答 5 个问题，看看你是否属于最早的这一百位。"
+  data-description-en="Answer five questions and see whether you belong in the earliest hundred."
+>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-mark" href="/index.html">
+        <span class="brand-seal" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <span class="brand-name">Youhu</span>
+          <span class="brand-subtitle">You Who</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/index.html">
+          <span class="lang-zh">首页</span>
+          <span class="lang-en">Home</span>
+        </a>
+        <a href="/manifesto.html">
+          <span class="lang-zh">理念</span>
+          <span class="lang-en">Manifesto</span>
+        </a>
+        <a href="/product.html">
+          <span class="lang-zh">产品</span>
+          <span class="lang-en">Product</span>
+        </a>
+        <a href="/founders.html">
+          <span class="lang-zh">创世计划</span>
+          <span class="lang-en">Founders</span>
+        </a>
+        <a class="is-active" href="/apply.html">
+          <span class="lang-zh">申请</span>
+          <span class="lang-en">Apply</span>
+        </a>
+        <button class="lang-toggle" type="button" data-lang-toggle>EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="apply-page">
+    <div class="form-shell">
+      <div>
+        <div class="form-intro">
+          <div class="section-kicker">
+            <span class="lang-zh">Application</span>
+            <span class="lang-en">Application</span>
+          </div>
+          <h1>
+            <span class="lang-zh">回答 5 个问题，看看你是否属于最早的这一百位。</span>
+            <span class="lang-en">Answer five questions and see if you belong in the earliest hundred.</span>
+          </h1>
+          <p class="lang-zh">我们优先邀请真正长期使用过日记、情绪记录、心理相关产品或自我觉察工具的人。这不是筛选“最完美的用户”，而是筛选“最深的用户”。</p>
+          <p class="lang-en">We prioritize people who already use journaling, emotional tracking, therapy-adjacent tools, or self-reflection products in real life. This is not about selecting perfect users. It is about selecting deep ones.</p>
+        </div>
+
+        <form class="form-panel" data-apply-form>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" data-progress-fill></div>
+          </div>
+          <div class="progress-meta">
+            <span>
+              <span class="lang-zh">当前步骤</span>
+              <span class="lang-en">Current Step</span>
+            </span>
+            <span><span data-progress-current>01</span> / <span data-progress-total>06</span></span>
+          </div>
+
+          <section class="wizard-step" data-step data-required-group="rituals">
+            <div class="step-label">
+              <span class="lang-zh">问题 1</span>
+              <span class="lang-en">Question 1</span>
+            </div>
+            <h2>
+              <span class="lang-zh">过去 30 天，你用过哪些方式处理情绪或整理内心？</span>
+              <span class="lang-en">In the last 30 days, which rituals have you used to process emotion or sort through your inner life?</span>
+            </h2>
+            <p class="lang-zh">可多选。我们在找已经有长期习惯的人。</p>
+            <p class="lang-en">Choose as many as apply. We are looking for people who already have habits here.</p>
+            <div class="choice-grid">
+              <label class="choice"><input type="checkbox" name="rituals" value="journaling"><span><span class="lang-zh">写日记</span><span class="lang-en">Journaling</span></span></label>
+              <label class="choice"><input type="checkbox" name="rituals" value="mood-app"><span><span class="lang-zh">情绪记录 App</span><span class="lang-en">Mood tracking apps</span></span></label>
+              <label class="choice"><input type="checkbox" name="rituals" value="ai-dialogue"><span><span class="lang-zh">AI 倾诉 / 对话</span><span class="lang-en">AI reflection or dialogue</span></span></label>
+              <label class="choice"><input type="checkbox" name="rituals" value="therapy"><span><span class="lang-zh">心理咨询 / 教练</span><span class="lang-en">Therapy or coaching</span></span></label>
+              <label class="choice"><input type="checkbox" name="rituals" value="meditation"><span><span class="lang-zh">冥想 / 身体练习</span><span class="lang-en">Meditation or body-based practice</span></span></label>
+              <label class="choice"><input type="checkbox" name="rituals" value="none"><span><span class="lang-zh">几乎没有稳定方式</span><span class="lang-en">Almost no stable ritual yet</span></span></label>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step data-required-group="frequency">
+            <div class="step-label">
+              <span class="lang-zh">问题 2</span>
+              <span class="lang-en">Question 2</span>
+            </div>
+            <h2>
+              <span class="lang-zh">你使用这类工具的频率，更接近哪一种？</span>
+              <span class="lang-en">Which pattern is closest to your actual usage frequency?</span>
+            </h2>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="frequency" value="daily"><span><span class="lang-zh">几乎每天</span><span class="lang-en">Almost every day</span></span></label>
+              <label class="choice"><input type="radio" name="frequency" value="3-5"><span><span class="lang-zh">每周 3-5 次</span><span class="lang-en">Three to five times a week</span></span></label>
+              <label class="choice"><input type="radio" name="frequency" value="1-2"><span><span class="lang-zh">每周 1-2 次</span><span class="lang-en">Once or twice a week</span></span></label>
+              <label class="choice"><input type="radio" name="frequency" value="sporadic"><span><span class="lang-zh">偶尔，只有状态差时</span><span class="lang-en">Sporadically, mostly when things get rough</span></span></label>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step data-required-group="moment">
+            <div class="step-label">
+              <span class="lang-zh">问题 3</span>
+              <span class="lang-en">Question 3</span>
+            </div>
+            <h2>
+              <span class="lang-zh">你最希望一个产品真正接住你的时刻，通常是什么时刻？</span>
+              <span class="lang-en">When do you most want a product to genuinely hold you?</span>
+            </h2>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="moment" value="chaotic"><span><span class="lang-zh">情绪很乱但说不清</span><span class="lang-en">When everything feels chaotic and hard to explain</span></span></label>
+              <label class="choice"><input type="radio" name="moment" value="night"><span><span class="lang-zh">深夜反复内耗</span><span class="lang-en">Late-night overthinking loops</span></span></label>
+              <label class="choice"><input type="radio" name="moment" value="after-pressure"><span><span class="lang-zh">白天高压后想整理自己</span><span class="lang-en">After a high-pressure day when I need to sort myself out</span></span></label>
+              <label class="choice"><input type="radio" name="moment" value="review"><span><span class="lang-zh">想回看自己一段时间的变化</span><span class="lang-en">When I want to review how I have changed over time</span></span></label>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step data-required-group="feedback_commitment">
+            <div class="step-label">
+              <span class="lang-zh">问题 4</span>
+              <span class="lang-en">Question 4</span>
+            </div>
+            <h2>
+              <span class="lang-zh">如果进入创世计划，你愿意连续 3 周给出真实反馈吗？</span>
+              <span class="lang-en">If accepted into the founder cohort, are you willing to give honest feedback for three continuous weeks?</span>
+            </h2>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="feedback_commitment" value="yes"><span><span class="lang-zh">愿意</span><span class="lang-en">Yes, definitely</span></span></label>
+              <label class="choice"><input type="radio" name="feedback_commitment" value="maybe"><span><span class="lang-zh">看情况</span><span class="lang-en">Maybe, depending on timing</span></span></label>
+              <label class="choice"><input type="radio" name="feedback_commitment" value="no"><span><span class="lang-zh">不太愿意</span><span class="lang-en">Not really</span></span></label>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step>
+            <div class="step-label">
+              <span class="lang-zh">问题 5</span>
+              <span class="lang-en">Question 5</span>
+            </div>
+            <h2>
+              <span class="lang-zh">如果加入 Youhu，你最想更认识的是哪一部分自己？</span>
+              <span class="lang-en">If you join Youhu, which part of yourself do you most want to understand better?</span>
+            </h2>
+            <p class="lang-zh">尽量具体。120 到 180 字最合适。</p>
+            <p class="lang-en">Try to be concrete. About 120 to 180 words is ideal.</p>
+            <div class="input-grid">
+              <textarea class="text-area" name="self_discovery" data-required-text placeholder="例如：我想看清自己为什么总在高压后突然失语，为什么最需要被理解的时候反而更想躲起来。"></textarea>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step>
+            <div class="step-label">
+              <span class="lang-zh">联系方式</span>
+              <span class="lang-en">Contact</span>
+            </div>
+            <h2>
+              <span class="lang-zh">最后留下一个代号和联系方式。</span>
+              <span class="lang-en">Leave an alias and one contact route.</span>
+            </h2>
+            <div class="input-grid">
+              <div class="input-row">
+                <label for="alias">
+                  <span class="lang-zh">昵称 / 代号</span>
+                  <span class="lang-en">Alias</span>
+                </label>
+                <input class="text-input" id="alias" name="alias" data-required-text placeholder="No.023 / Night Tide / 你的名字">
+              </div>
+              <div class="input-row">
+                <label for="contact">
+                  <span class="lang-zh">邮箱或 Telegram / 微信</span>
+                  <span class="lang-en">Email or Telegram / WeChat</span>
+                </label>
+                <input class="text-input" id="contact" name="contact" data-required-text placeholder="supporter@example.com / @handle / 微信号">
+              </div>
+              <div class="input-row">
+                <label for="referral-code">
+                  <span class="lang-zh">推荐邀请码（选填）</span>
+                  <span class="lang-en">Referral code (optional)</span>
+                </label>
+                <input class="text-input" id="referral-code" name="referral_code" placeholder="YH7K2Q">
+              </div>
+            </div>
+            <div class="form-note">
+              <span class="lang-zh">当前网站为静态版。点击提交后，会自动打开你的邮件应用，并把申请内容预填到发往 `support@youhu.space` 的邮件里。</span>
+              <span class="lang-en">This website is currently a static build. When you submit, it opens your mail app and pre-fills an email to `support@youhu.space` with your application content.</span>
+            </div>
+          </section>
+
+          <div class="wizard-actions">
+            <button class="button button-ghost" type="button" data-step-back>
+              <span class="lang-zh">上一步</span>
+              <span class="lang-en">Back</span>
+            </button>
+            <button class="button button-secondary" type="button" data-step-next>
+              <span class="lang-zh">下一步</span>
+              <span class="lang-en">Next</span>
+            </button>
+            <button class="button button-primary" type="submit" data-step-submit style="display:none;">
+              <span class="lang-zh">在邮件中提交申请</span>
+              <span class="lang-en">Submit via Email</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="status-box" data-application-status>
+          <h3>
+            <span class="lang-zh">申请草稿已生成。</span>
+            <span class="lang-en">Your application draft is ready.</span>
+          </h3>
+          <p class="lang-zh">如果邮件应用没有自动打开，你可以复制下面的内容，手动发送到 `support@youhu.space`。</p>
+          <p class="lang-en">If your mail app does not open automatically, copy the text below and send it manually to `support@youhu.space`.</p>
+          <div class="status-actions">
+            <button class="button button-secondary" type="button" data-copy-application>
+              <span class="lang-zh">复制申请内容</span>
+              <span class="lang-en">Copy Application</span>
+            </button>
+            <a class="button button-ghost" href="mailto:support@youhu.space">support@youhu.space</a>
+          </div>
+          <div class="application-preview" data-application-preview></div>
+        </div>
+      </div>
+
+      <aside class="status-box is-visible">
+        <h3>
+          <span class="lang-zh">筛选重点</span>
+          <span class="lang-en">Selection focus</span>
+        </h3>
+        <ul class="status-list">
+          <li>
+            <strong>
+              <span class="lang-zh">不是最多的人</span>
+              <span class="lang-en">Not the largest crowd</span>
+            </strong>
+            <span class="lang-zh">我们要的是最匹配、最深、最可能长期留下来的人。</span>
+            <span class="lang-en">We are looking for the most resonant, deepest users, and the ones most likely to stay.</span>
+          </li>
+          <li>
+            <strong>
+              <span class="lang-zh">不是拿福利</span>
+              <span class="lang-en">Not a giveaway</span>
+            </strong>
+            <span class="lang-zh">前 100 位创世身份是一种永久编号，而不是促销折扣。</span>
+            <span class="lang-en">The first 100 founder identity is a permanent number, not a promotional discount.</span>
+          </li>
+          <li>
+            <strong>
+              <span class="lang-zh">不是一次性试用</span>
+              <span class="lang-en">Not a one-off trial</span>
+            </strong>
+            <span class="lang-zh">我们优先选择愿意连续使用和反馈的人。</span>
+            <span class="lang-en">We prioritize people willing to use the product continuously and give feedback.</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-links">
+        <a href="/founders.html">
+          <span class="lang-zh">创世计划</span>
+          <span class="lang-en">Founders</span>
+        </a>
+        <a href="/privacy.html">
+          <span class="lang-zh">隐私</span>
+          <span class="lang-en">Privacy</span>
+        </a>
+        <a href="/terms.html">
+          <span class="lang-zh">条款</span>
+          <span class="lang-en">Terms</span>
+        </a>
+      </div>
+      <div class="footer-meta">
+        <span>support@youhu.space</span>
+        <span>© 2026 Youhu Studio. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>

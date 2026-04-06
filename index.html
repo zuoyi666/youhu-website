@@ -1,49 +1,368 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youhu | 你的存在之海</title>
-    <style>
-        body {
-            background-color: #1A1A1D; /* 极简深渊色 */
-            color: #E0E0E0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        h1 { font-size: 2.5rem; letter-spacing: 4px; font-weight: 300; margin-bottom: 10px; }
-        p { font-size: 1rem; color: #888; max-width: 400px; line-height: 1.6; margin-bottom: 40px; }
-        .btn-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .btn {
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .btn-ios { background-color: #FFF; color: #000; }
-        .btn-ios:hover { background-color: #CCC; }
-        .btn-android { background-color: transparent; border: 1px solid #555; color: #FFF; }
-        .btn-android:hover { border-color: #FFF; }
-        .footer { position: absolute; bottom: 20px; font-size: 0.7rem; color: #444; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youhu | You Who</title>
+  <meta name="description" content="Youhu is a founder-first sea for self-discovery.">
+  <meta name="theme-color" content="#05111d">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
-    <h1>存在之海</h1>
-    <p>卸下伪装，把脑子里的碎片扔进来。<br>基于纯本地加密的极简情绪日记与 AI 潜意识暗房。</p>
-    
-    <div class="btn-container">
-        <a href="#" class="btn btn-ios"> App Store (即将上线)</a>
-        <a href="#" class="btn btn-android">Android 极客版下载</a>
+<body
+  data-lang="zh"
+  data-title-zh="Youhu | You Who"
+  data-title-en="Youhu | You Who"
+  data-description-zh="Youhu，取自 You Who。它不是又一个情绪 App，而是一片帮助高敏感者长期看见自己的存在之海。"
+  data-description-en="Youhu, from You Who. Not another mood app, but a sea for people who want to understand who they are over time."
+>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-mark" href="/index.html">
+        <span class="brand-seal" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <span class="brand-name">Youhu</span>
+          <span class="brand-subtitle">You Who</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="is-active" href="/index.html">
+          <span class="lang-zh">首页</span>
+          <span class="lang-en">Home</span>
+        </a>
+        <a href="/manifesto.html">
+          <span class="lang-zh">理念</span>
+          <span class="lang-en">Manifesto</span>
+        </a>
+        <a href="/product.html">
+          <span class="lang-zh">产品</span>
+          <span class="lang-en">Product</span>
+        </a>
+        <a href="/founders.html">
+          <span class="lang-zh">创世计划</span>
+          <span class="lang-en">Founders</span>
+        </a>
+        <a href="/apply.html">
+          <span class="lang-zh">申请</span>
+          <span class="lang-en">Apply</span>
+        </a>
+        <button class="lang-toggle" type="button" data-lang-toggle>EN</button>
+      </nav>
     </div>
+  </header>
 
-    <div class="footer">© 2026 Youhu Studio. All rights reserved.</div>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="lang-zh">Youhu，取自 You Who</span>
+            <span class="lang-en">Youhu, from You Who</span>
+          </div>
+          <h1>
+            <span class="lang-zh">不是又一个情绪 App。<br>是通往 “You Who” 的一片海。</span>
+            <span class="lang-en">Not another mood app.<br>A sea that leads back to You Who.</span>
+          </h1>
+          <p class="lang-zh">记录情绪只是入口。真正重要的是，在时间里看见自己，理解自己，慢慢认出你是谁。</p>
+          <p class="lang-en">Mood logging is only the threshold. The real work is seeing yourself over time, understanding yourself, and slowly recognizing who you are.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/apply.html">
+              <span class="lang-zh">申请成为前 100 位创世领航员</span>
+              <span class="lang-en">Apply for the First 100 Founders</span>
+            </a>
+            <a class="button button-secondary" href="/manifesto.html">
+              <span class="lang-zh">阅读 Youhu 理念</span>
+              <span class="lang-en">Read the Manifesto</span>
+            </a>
+          </div>
+          <div class="micro-copy">
+            <span class="lang-zh">下载入口将随创世名单分批开放。</span>
+            <span class="lang-en">Download access will open in waves after founder selection.</span>
+          </div>
+          <ul class="signal-list">
+            <li>
+              <div class="signal-label">
+                <span class="lang-zh">创世席位</span>
+                <span class="lang-en">Founder Seats</span>
+              </div>
+              <div class="signal-value">
+                <span class="lang-zh">仅限前 100 位，不是早鸟优惠，而是永久身份。</span>
+                <span class="lang-en">Only the first 100. Not an early-bird discount, but a permanent identity.</span>
+              </div>
+            </li>
+            <li>
+              <div class="signal-label">
+                <span class="lang-zh">适合的人</span>
+                <span class="lang-en">Built For</span>
+              </div>
+              <div class="signal-value">
+                <span class="lang-zh">长期写日记、做情绪记录、使用心理相关产品，且愿意认真反馈的人。</span>
+                <span class="lang-en">People who already live with journaling, emotional reflection, therapy-adjacent tools, and serious feedback habits.</span>
+              </div>
+            </li>
+            <li>
+              <div class="signal-label">
+                <span class="lang-zh">品牌母句</span>
+                <span class="lang-en">Brand Thesis</span>
+              </div>
+              <div class="signal-value">
+                <span class="lang-zh">认识你是谁，也因此更加认识自己。</span>
+                <span class="lang-en">To understand who you are, and through that, understand yourself more deeply.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="tidal-core">
+            <div class="tidal-figure">100</div>
+            <div class="tidal-caption">
+              <span class="lang-zh">Founding Navigators</span>
+              <span class="lang-en">Founding Navigators</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-kicker">
+            <span class="lang-zh">Why Youhu</span>
+            <span class="lang-en">Why Youhu</span>
+          </div>
+          <h2>
+            <span class="lang-zh">很多人并不缺建议。<br>他们缺的是一个足够安静的地方，去看见自己。</span>
+            <span class="lang-en">Most people are not short on advice.<br>They are short on spaces quiet enough to see themselves.</span>
+          </h2>
+          <p class="lang-zh">Youhu 想提供的，不是更强的管理感，而是更深的自我靠近。它不催你更快变好，只想陪你更真实地靠近“我是谁”。</p>
+          <p class="lang-en">Youhu is not here to optimize you into emotional efficiency. It is here to help you move closer to yourself, and to the deeper question beneath mood: who am I, really?</p>
+        </div>
+        <div class="quote-block">
+          <p class="lang-zh">“我们想做的，不是一个让人更会管理情绪的产品，而是一片让人重新靠近自己的海。”</p>
+          <p class="lang-en">“We are not building a product that trains people to manage feelings better. We are building a sea that helps people come back to themselves.”</p>
+          <div class="quote-credit">
+            <span class="lang-zh">Youhu / Brand Thesis</span>
+            <span class="lang-en">Youhu / Brand Thesis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-kicker">
+            <span class="lang-zh">Product Spine</span>
+            <span class="lang-en">Product Spine</span>
+          </div>
+          <h2>
+            <span class="lang-zh">三个入口，通向同一个问题：You Who</span>
+            <span class="lang-en">Three entry points, one shared question: You Who</span>
+          </h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-entry">
+            <h3>
+              <span class="lang-zh">存在之海</span>
+              <span class="lang-en">Sea of Being</span>
+            </h3>
+            <p class="lang-zh">把还没整理好的那一团，也允许它先存在。你不需要先变得完整，才值得被接住。</p>
+            <p class="lang-en">A place where even the unedited, unformed inner mess is allowed to arrive as-is. You do not need to become coherent before you deserve to be held.</p>
+          </article>
+          <article class="feature-entry">
+            <h3>
+              <span class="lang-zh">灵魂星图</span>
+              <span class="lang-en">Soul Constellation</span>
+            </h3>
+            <p class="lang-zh">不是统计你的情绪，而是帮助你在长期痕迹中看见自己正在成为什么样的人。</p>
+            <p class="lang-en">Not a chart of moods, but a way to notice who you are becoming through the traces you keep over time.</p>
+          </article>
+          <article class="feature-entry">
+            <h3>
+              <span class="lang-zh">时光琥珀</span>
+              <span class="lang-en">Time Amber</span>
+            </h3>
+            <p class="lang-zh">有些感受不是要被立刻消除，而是要在时间里被重新理解。</p>
+            <p class="lang-en">Some feelings are not meant to be cleared instantly. They need time around them before they can be understood.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-kicker">
+            <span class="lang-zh">Founder Signal</span>
+            <span class="lang-en">Founder Signal</span>
+          </div>
+          <h2>
+            <span class="lang-zh">前 100 位，不只是抢先进入。<br>而是成为 Youhu 最早的一部分。</span>
+            <span class="lang-en">The first 100 are not simply early access.<br>They become part of Youhu's origin story.</span>
+          </h2>
+          <p class="lang-zh">我们优先邀请真正长期使用过日记、情绪记录、心理相关产品或自我觉察工具的人。不是筛选最完美的人，而是筛选最深的人。</p>
+          <p class="lang-en">We are looking first for people who already live with journaling, reflection, therapy-adjacent products, or self-observation rituals. Not the most polished people. The deepest ones.</p>
+        </div>
+        <div class="split-grid">
+          <div class="founder-panel">
+            <h3>
+              <span class="lang-zh">No.023 创世领航员</span>
+              <span class="lang-en">No.023 Founding Navigator</span>
+            </h3>
+            <div class="founder-code">You Who</div>
+            <div class="founder-note">
+              <span class="lang-zh">每一位创世领航员都会获得永久编号、终身勋章、优先共建资格，以及 2 个邀请名额。</span>
+              <span class="lang-en">Each founder receives a permanent number, a lifetime badge, priority access to new features, and two invite seats.</span>
+            </div>
+          </div>
+          <div class="line-list">
+            <div class="line-item">
+              <h3>
+                <span class="lang-zh">仅限前 100 位</span>
+                <span class="lang-en">Only the First 100</span>
+              </h3>
+              <p class="lang-zh">创世身份只属于最初完成激活的 100 人，后续不会继续扩发。</p>
+              <p class="lang-en">Founder status belongs only to the first 100 who complete activation. It does not expand later.</p>
+            </div>
+            <div class="line-item">
+              <h3>
+                <span class="lang-zh">申请制，不是开放注册</span>
+                <span class="lang-en">Application, Not Open Signup</span>
+              </h3>
+              <p class="lang-zh">我们会优先选择更可能长期使用、持续反馈、真正理解 Youhu 气质的人。</p>
+              <p class="lang-en">We prioritize people most likely to stay, give thoughtful feedback, and resonate with the emotional discipline of the product.</p>
+            </div>
+            <div class="line-item">
+              <h3>
+                <span class="lang-zh">邀请码激活后点亮编号</span>
+                <span class="lang-en">Number Unlocks on Activation</span>
+              </h3>
+              <p class="lang-zh">审核通过后会收到 6 位邀请码，激活成功后才正式点亮 Founder 编号与勋章。</p>
+              <p class="lang-en">Once approved, you receive a 6-character invite code. Your founder number only lights up after activation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="metric-strip">
+          <div class="metric">
+            <div class="stat-label">
+              <span class="lang-zh">席位上限</span>
+              <span class="lang-en">Seat Cap</span>
+            </div>
+            <div class="metric-value">100</div>
+            <div class="metric-note">
+              <span class="lang-zh">只属于最早一百位完成激活的人。</span>
+              <span class="lang-en">Reserved for the earliest hundred who complete activation.</span>
+            </div>
+          </div>
+          <div class="metric">
+            <div class="stat-label">
+              <span class="lang-zh">邀请额度</span>
+              <span class="lang-en">Invite Quota</span>
+            </div>
+            <div class="metric-value">2</div>
+            <div class="metric-note">
+              <span class="lang-zh">每位 Founder 最多再带 2 位同行者上船。</span>
+              <span class="lang-en">Each founder can bring two more people aboard.</span>
+            </div>
+          </div>
+          <div class="metric">
+            <div class="stat-label">
+              <span class="lang-zh">保留窗口</span>
+              <span class="lang-en">Reserve Window</span>
+            </div>
+            <div class="metric-value">72h</div>
+            <div class="metric-note">
+              <span class="lang-zh">审核通过后，Founder 编号保留 72 小时。</span>
+              <span class="lang-en">Approved founder numbers stay reserved for 72 hours.</span>
+            </div>
+          </div>
+          <div class="metric">
+            <div class="stat-label">
+              <span class="lang-zh">站点语言</span>
+              <span class="lang-en">Languages</span>
+            </div>
+            <div class="metric-value">CN / EN</div>
+            <div class="metric-note">
+              <span class="lang-zh">中英双语同步开放，方便全球创世用户。</span>
+              <span class="lang-en">Chinese and English open together for global founder candidates.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="cta-band">
+          <div>
+            <h2>
+              <span class="lang-zh">前 100 位创世领航员，不是早鸟优惠。是 Youhu 最早的永久身份。</span>
+              <span class="lang-en">The first 100 founders are not an early-bird deal. They are Youhu's earliest permanent identity.</span>
+            </h2>
+            <p class="lang-zh">如果你已经长期使用情绪记录、日记、心理相关产品，或者你知道自己会认真对待这种产品，就从这 5 个问题开始。</p>
+            <p class="lang-en">If you already live with reflection tools, journaling, or therapy-adjacent products, and you know you will treat this seriously, start with the five questions.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-primary" href="/apply.html">
+              <span class="lang-zh">开始申请</span>
+              <span class="lang-en">Start the Application</span>
+            </a>
+            <a class="button button-ghost" href="/founders.html">
+              <span class="lang-zh">查看创世规则</span>
+              <span class="lang-en">See Founder Rules</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-links">
+        <a href="/manifesto.html">
+          <span class="lang-zh">理念</span>
+          <span class="lang-en">Manifesto</span>
+        </a>
+        <a href="/product.html">
+          <span class="lang-zh">产品</span>
+          <span class="lang-en">Product</span>
+        </a>
+        <a href="/founders.html">
+          <span class="lang-zh">创世计划</span>
+          <span class="lang-en">Founders</span>
+        </a>
+        <a href="/apply.html">
+          <span class="lang-zh">申请</span>
+          <span class="lang-en">Apply</span>
+        </a>
+        <a href="/privacy.html">
+          <span class="lang-zh">隐私</span>
+          <span class="lang-en">Privacy</span>
+        </a>
+        <a href="/terms.html">
+          <span class="lang-zh">条款</span>
+          <span class="lang-en">Terms</span>
+        </a>
+      </div>
+      <div class="footer-meta">
+        <span>support@youhu.space</span>
+        <span class="lang-zh">© 2026 Youhu Studio. All rights reserved.</span>
+        <span class="lang-en">© 2026 Youhu Studio. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js"></script>
 </body>
 </html>
