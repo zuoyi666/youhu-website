@@ -276,104 +276,99 @@ img {
   margin: 0 auto;
   min-height: calc(100svh - var(--header-height) - 96px);
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+  gap: 36px;
   align-items: center;
 }
 
 .hero-copy-refined {
-  max-width: 560px;
+  max-width: 620px;
   position: relative;
   z-index: 1;
 }
 
-.hero-brand {
-  margin-top: 12px;
+.hero-markline {
+  margin-top: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-.hero-brand-name,
-.hero-brand-tag {
+.hero-markline-name {
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  line-height: 0.94;
+  font-size: clamp(2.15rem, 3.4vw, 3.2rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
 }
 
-.hero-brand-name {
-  font-size: clamp(4.8rem, 8vw, 7.4rem);
-  letter-spacing: -0.05em;
-}
-
-.hero-brand-tag {
-  margin-top: 2px;
-  font-size: clamp(1.25rem, 2.3vw, 1.9rem);
-  letter-spacing: 0.26em;
+.hero-markline-sub {
+  font-size: 12px;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: rgba(241, 239, 231, 0.58);
+  color: rgba(241, 239, 231, 0.48);
 }
 
 .hero-copy-refined h1 {
-  margin: 18px 0 16px;
-  font-size: clamp(2.7rem, 5.2vw, 4.3rem);
-  line-height: 0.96;
-  max-width: 10ch;
+  margin: 22px 0 0;
 }
 
 .hero-title {
-  margin: 22px 0 18px;
+  margin: 22px 0 0;
   max-width: none;
 }
 
 .hero-title-zh,
 .hero-title-en {
   display: block;
+  font-family: "Manrope", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  text-wrap: balance;
 }
 
 .hero-title-zh {
-  max-width: 6.4em;
-  font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
-  font-weight: 600;
-  font-size: clamp(3rem, 5.4vw, 4.75rem);
-  line-height: 1.04;
-  letter-spacing: -0.055em;
-  text-wrap: balance;
+  max-width: none;
+  font-size: clamp(3.5rem, 5.7vw, 5.35rem);
+  line-height: 0.94;
+}
+
+.hero-title-en {
+  max-width: 12ch;
+  font-size: clamp(3rem, 5.1vw, 4.8rem);
+  line-height: 1;
 }
 
 .hero-title-line {
   display: block;
-}
-
-.hero-title-line + .hero-title-line {
-  margin-top: 0.02em;
-}
-
-.hero-title-line-shift {
-  padding-left: 0.16em;
-}
-
-.hero-title-line-deep {
-  padding-left: 0.46em;
-}
-
-.hero-title-en {
-  max-width: 10ch;
+  white-space: nowrap;
 }
 
 .hero-summary {
-  max-width: 500px;
+  max-width: 34rem;
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.78;
 }
 
-.hero-note-grid {
-  margin-top: 34px;
+.hero-spec-strip {
+  margin-top: 42px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(151, 202, 224, 0.12);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
-.hero-note {
-  padding-top: 16px;
-  border-top: 1px solid rgba(151, 202, 224, 0.14);
+.hero-spec {
+  min-width: 0;
 }
 
-.hero-note-label,
+.hero-spec + .hero-spec {
+  padding-left: 6px;
+}
+
+.hero-spec-label,
 .spine-index,
 .founder-stage-label,
 .story-line span {
@@ -383,31 +378,31 @@ img {
   color: var(--soft);
 }
 
-.hero-note-value {
-  margin-top: 8px;
+.hero-spec-value {
+  margin-top: 10px;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  line-height: 0.96;
+  font-size: clamp(1.9rem, 2.2vw, 2.4rem);
+  line-height: 0.94;
   color: var(--text);
 }
 
-.hero-note p {
+.hero-spec p {
   margin-top: 8px;
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 13px;
+  line-height: 1.7;
   color: var(--muted);
 }
 
 .hero-visual {
   position: relative;
-  min-height: 600px;
+  min-height: 620px;
   display: grid;
   place-items: center;
 }
 
 .amber-stage {
   position: relative;
-  width: min(50vw, 540px);
+  width: min(48vw, 520px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -422,9 +417,9 @@ img {
 
 .amber-stage::before {
   background:
-    radial-gradient(circle at 50% 48%, rgba(220, 180, 105, 0.24), rgba(220, 180, 105, 0.08) 26%, rgba(4, 15, 27, 0) 58%),
-    radial-gradient(circle at 50% 55%, rgba(195, 236, 255, 0.08), rgba(4, 15, 27, 0) 68%);
-  filter: blur(20px);
+    radial-gradient(circle at 50% 48%, rgba(220, 180, 105, 0.18), rgba(220, 180, 105, 0.06) 28%, rgba(4, 15, 27, 0) 62%),
+    radial-gradient(circle at 50% 55%, rgba(195, 236, 255, 0.05), rgba(4, 15, 27, 0) 68%);
+  filter: blur(22px);
   animation: halo-breathe 9s ease-in-out infinite;
 }
 
@@ -434,10 +429,10 @@ img {
 
 .amber-icon {
   position: relative;
-  width: min(42vw, 330px);
+  width: min(40vw, 320px);
   filter:
-    drop-shadow(0 22px 42px rgba(0, 0, 0, 0.28))
-    drop-shadow(0 0 26px rgba(220, 180, 105, 0.14));
+    drop-shadow(0 18px 36px rgba(0, 0, 0, 0.24))
+    drop-shadow(0 0 22px rgba(220, 180, 105, 0.12));
   animation: icon-float 8.5s ease-in-out infinite;
 }
 
@@ -1355,8 +1350,13 @@ img {
     order: -1;
   }
 
-  .hero-note-grid {
+  .hero-spec-strip {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero-spec + .hero-spec {
+    padding-left: 0;
   }
 
   .cta-stage {
@@ -1416,13 +1416,13 @@ img {
     font-size: clamp(2.8rem, 15vw, 4rem);
   }
 
-  .hero-brand-name {
-    font-size: clamp(4rem, 20vw, 5.4rem);
+  .hero-markline-name {
+    font-size: clamp(2rem, 10vw, 2.7rem);
   }
 
-  .hero-brand-tag {
-    font-size: 1rem;
-    letter-spacing: 0.18em;
+  .hero-markline-sub {
+    font-size: 11px;
+    letter-spacing: 0.24em;
   }
 
   .hero-copy-refined h1,
@@ -1434,27 +1434,31 @@ img {
   }
 
   .hero-title-zh {
-    max-width: 5.8em;
-    font-size: clamp(2.6rem, 13vw, 3.7rem);
-    line-height: 1.06;
-    letter-spacing: -0.045em;
+    max-width: none;
+    font-size: clamp(2.8rem, 11vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
   }
 
-  .hero-title-line-shift,
-  .hero-title-line-deep {
-    padding-left: 0;
+  .hero-title-en {
+    max-width: 10ch;
+    font-size: clamp(2.7rem, 10vw, 3.8rem);
+  }
+
+  .hero-title-line {
+    white-space: normal;
   }
 
   .hero-visual {
-    min-height: 380px;
+    min-height: 340px;
   }
 
   .amber-stage {
-    width: min(88vw, 360px);
+    width: min(82vw, 340px);
   }
 
   .amber-icon {
-    width: min(72vw, 250px);
+    width: min(66vw, 230px);
   }
 
   .story-line {
