@@ -56,7 +56,7 @@
 
   <main class="apply-page">
     <div class="form-shell">
-      <div>
+      <div data-application-flow>
         <div class="form-intro">
           <div class="section-kicker">
             <span class="lang-zh">Application</span>
@@ -171,12 +171,12 @@
 
           <section class="wizard-step" data-step>
             <div class="step-label">
-              <span class="lang-zh">联系方式</span>
-              <span class="lang-en">Contact</span>
+              <span class="lang-zh">邮箱</span>
+              <span class="lang-en">Email</span>
             </div>
             <h2>
-              <span class="lang-zh">最后留下一个代号和联系方式。</span>
-              <span class="lang-en">Leave an alias and one contact route.</span>
+              <span class="lang-zh">最后留下一个代号和邮箱。</span>
+              <span class="lang-en">Leave an alias and your email.</span>
             </h2>
             <div class="input-grid">
               <div class="input-row">
@@ -187,11 +187,20 @@
                 <input class="text-input" id="alias" name="alias" data-required-text placeholder="No.023 / Night Tide / 你的名字">
               </div>
               <div class="input-row">
-                <label for="contact">
-                  <span class="lang-zh">邮箱或 Telegram / 微信</span>
-                  <span class="lang-en">Email or Telegram / WeChat</span>
+                <label for="email">
+                  <span class="lang-zh">邮箱</span>
+                  <span class="lang-en">Email</span>
                 </label>
-                <input class="text-input" id="contact" name="contact" data-required-text placeholder="supporter@example.com / @handle / 微信号">
+                <input
+                  class="text-input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  data-required-text
+                  placeholder="founder@youhu.space"
+                >
               </div>
               <div class="input-row">
                 <label for="referral-code">
@@ -206,8 +215,8 @@
               </div>
             </div>
             <div class="form-note">
-              <span class="lang-zh">默认会直接在站内提交到 `support@youhu.space`。如果当前环境尚未完成邮件配置，页面会自动回退为“复制申请内容 + 手动发送邮件”。</span>
-              <span class="lang-en">By default, the application submits inside the site and routes to `support@youhu.space`. If email delivery has not been configured in the current environment yet, the page automatically falls back to “copy the application + send manually.”</span>
+              <span class="lang-zh">提交后，申请会直接发送到 `support@youhu.space`。请确认邮箱填写准确，以便我们向你发送后续通知。</span>
+              <span class="lang-en">After submission, the application will be sent directly to `support@youhu.space`. Please make sure your email is correct so we can follow up.</span>
             </div>
           </section>
 
@@ -229,19 +238,21 @@
 
         <div class="status-box" data-application-status>
           <h3 data-status-heading>
-            <span class="lang-zh">申请草稿已生成。</span>
-            <span class="lang-en">Your application draft is ready.</span>
+            <span class="lang-zh">申请已提交。</span>
+            <span class="lang-en">Application submitted.</span>
           </h3>
-          <p data-status-body class="lang-zh">如果邮件配置尚未完成，你可以复制下面的内容，手动发送到 `support@youhu.space`。</p>
-          <p data-status-body class="lang-en">If email delivery is not configured yet, copy the text below and send it manually to `support@youhu.space`.</p>
+          <p data-status-body class="lang-zh">你的申请已经进入 Youhu 创世筛选流程。如果你被选中，我们会通过你填写的邮箱联系你。</p>
+          <p data-status-body class="lang-en">Your application has entered the Youhu founder review flow. If selected, we will reach out through the email you provided.</p>
           <div class="status-actions">
-            <button class="button button-secondary" type="button" data-copy-application>
-              <span class="lang-zh">复制申请内容</span>
-              <span class="lang-en">Copy Application</span>
+            <a class="button button-secondary" href="/" data-status-home>
+              <span class="lang-zh">返回首页</span>
+              <span class="lang-en">Back Home</span>
+            </a>
+            <button class="button button-ghost" type="button" data-status-retry style="display:none;">
+              <span class="lang-zh">返回表单</span>
+              <span class="lang-en">Back to Form</span>
             </button>
-            <a class="button button-ghost" href="mailto:support@youhu.space" data-mailto-link>support@youhu.space</a>
           </div>
-          <div class="application-preview" data-application-preview></div>
         </div>
       </div>
 

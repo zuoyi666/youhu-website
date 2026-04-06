@@ -61,6 +61,7 @@
   }
 
   const steps = Array.from(form.querySelectorAll("[data-step]"));
+  const flow = document.querySelector("[data-application-flow]");
   const backButton = form.querySelector("[data-step-back]");
   const nextButton = form.querySelector("[data-step-next]");
   const submitButton = form.querySelector("[data-step-submit]");
@@ -72,32 +73,29 @@
   const statusBodies = Array.from(
     statusBox?.querySelectorAll("[data-status-body]") || []
   );
-  const preview = document.querySelector("[data-application-preview]");
-  const copyButton = document.querySelector("[data-copy-application]");
-  const mailtoLink = document.querySelector("[data-mailto-link]");
+  const retryButton = document.querySelector("[data-status-retry]");
   let currentStep = 0;
-  let draftText = "";
   let isSubmitting = false;
 
   const statusMessages = {
     success: {
       zh: {
         heading: "申请已提交。",
-        body: "你的申请已经通过网站提交到 `support@youhu.space`。如果你被选中，我们会再联系你并发出 Founder 邀请码。",
+        body: "你的申请已经通过网站提交到 `support@youhu.space`。如果你被选中，我们会通过你留下的邮箱联系你，并发出 Founder 邀请码。",
       },
       en: {
         heading: "Application submitted.",
-        body: "Your application has been submitted through the website to `support@youhu.space`. If selected, we will follow up and send your founder invite code.",
+        body: "Your application has been submitted through the website to `support@youhu.space`. If selected, we will reach out through your email and send your founder invite code.",
       },
     },
-    fallback: {
+    error: {
       zh: {
-        heading: "网站已生成申请草稿。",
-        body: "当前环境尚未完成邮件发送配置。你可以复制下面的内容，或直接用邮件发送到 `support@youhu.space`。",
+        heading: "提交失败。",
+        body: "这次提交没有成功送达。请返回表单后再试一次，或稍后重新提交。",
       },
       en: {
-        heading: "Your application draft is ready.",
-        body: "Email delivery is not configured in this environment yet. Copy the application below or send it manually to `support@youhu.space`.",
+        heading: "Submission failed.",
+        body: "This submission did not go through successfully. Return to the form and try again, or submit later.",
       },
     },
   };
@@ -146,7 +144,10 @@
       }
     }
     const requiredText = Array.from(step.querySelectorAll("[data-required-text]"));
-    return requiredText.every((field) => field.value.trim().length > 0);
+    return requiredText.every((field) => {
+      const hasValue = field.value.trim().length > 0;
+      return hasValue && (!field.checkValidity || field.checkValidity());
+    });
   }
 
   function validateCurrentStep() {
@@ -154,8 +155,8 @@
     if (stepIsValid(step)) {
       return true;
     }
-    const alertZh = "请先完成当前这一步。";
-    const alertEn = "Please complete this step before continuing.";
+    const alertZh = "请先完整填写当前这一步，并检查邮箱格式是否正确。";
+    const alertEn = "Please complete this step and make sure the email format is valid.";
     window.alert(currentLang === "zh" ? alertZh : alertEn);
     return false;
   }
@@ -185,77 +186,41 @@
       feedbackCommitment: collectChoice("feedback_commitment"),
       selfDiscovery: collectText("self_discovery"),
       alias: collectText("alias"),
-      contact: collectText("contact"),
+      email: collectText("email"),
       referralCode: collectText("referral_code"),
       website: collectText("website"),
       lang: currentLang,
     };
   }
 
-  function buildDraft() {
-    const payload = buildPayload();
-    const lines =
-      payload.lang === "zh"
-        ? [
-            "Youhu 创世申请",
-            "",
-            `1. 过去 30 天的方式：${payload.rituals}`,
-            `2. 使用频率：${payload.frequency}`,
-            `3. 最想被接住的时刻：${payload.moment}`,
-            `4. 是否愿意连续 3 周反馈：${payload.feedbackCommitment}`,
-            `5. 最想更认识的自己：${payload.selfDiscovery}`,
-            "",
-            `昵称 / 代号：${payload.alias}`,
-            `联系方式：${payload.contact}`,
-            `推荐邀请码：${payload.referralCode || "无"}`,
-            `浏览语言：中文`,
-            `提交方式：youhu.space 申请页面`,
-          ]
-        : [
-            "Youhu Founder Application",
-            "",
-            `1. Tools used in the last 30 days: ${payload.rituals}`,
-            `2. Usage frequency: ${payload.frequency}`,
-            `3. When I most want to be held: ${payload.moment}`,
-            `4. Commitment to 3 weeks of feedback: ${payload.feedbackCommitment}`,
-            `5. The part of myself I want to understand better: ${payload.selfDiscovery}`,
-            "",
-            `Alias: ${payload.alias}`,
-            `Contact: ${payload.contact}`,
-            `Referral code: ${payload.referralCode || "None"}`,
-            `Browsing language: English`,
-            `Submission route: youhu.space application page`,
-          ];
-
-    return lines.join("\n");
-  }
-
-  function mailtoForDraft() {
-    const subject =
-      currentLang === "zh"
-        ? "Youhu 创世申请"
-        : "Youhu Founder Application";
-    return `mailto:support@youhu.space?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(draftText)}`;
-  }
-
   function updateStatus(kind) {
-    const message = statusMessages[kind]?.[currentLang] || statusMessages.fallback[currentLang];
+    const message = statusMessages[kind]?.[currentLang] || statusMessages.error[currentLang];
     if (statusHeading) {
       statusHeading.textContent = message.heading;
     }
     statusBodies.forEach((node) => {
       node.textContent = message.body;
     });
+    if (flow) {
+      flow.hidden = true;
+    }
     if (statusBox) {
       statusBox.classList.add("is-visible");
     }
-    if (preview) {
-      preview.textContent = draftText;
+    if (retryButton) {
+      retryButton.style.display = kind === "error" ? "inline-flex" : "none";
     }
-    if (mailtoLink) {
-      mailtoLink.setAttribute("href", mailtoForDraft());
+  }
+
+  function hideStatus() {
+    if (flow) {
+      flow.hidden = false;
+    }
+    if (statusBox) {
+      statusBox.classList.remove("is-visible");
+    }
+    if (retryButton) {
+      retryButton.style.display = "none";
     }
   }
 
@@ -300,7 +265,6 @@
     if (!validateCurrentStep()) {
       return;
     }
-    draftText = buildDraft();
     const payload = buildPayload();
     setSubmitting(true);
     fetch("/api/apply", {
@@ -315,40 +279,21 @@
         if (response.ok && result.ok) {
           updateStatus("success");
           form.reset();
-          setStep(0);
           return;
         }
         throw new Error(result.error || "submit_failed");
       })
       .catch(() => {
-        updateStatus("fallback");
+        updateStatus("error");
       })
       .finally(() => {
         setSubmitting(false);
       });
   });
 
-  if (copyButton) {
-    copyButton.addEventListener("click", async () => {
-      if (!draftText) {
-        draftText = buildDraft();
-        if (preview) {
-          preview.textContent = draftText;
-        }
-        if (statusBox) {
-          statusBox.classList.add("is-visible");
-        }
-      }
-      try {
-        await navigator.clipboard.writeText(draftText);
-        copyButton.textContent = currentLang === "zh" ? "已复制" : "Copied";
-      } catch (_error) {
-        window.alert(
-          currentLang === "zh"
-            ? "复制失败，请手动复制下方内容。"
-            : "Copy failed. Please copy the text below manually."
-        );
-      }
+  if (retryButton) {
+    retryButton.addEventListener("click", () => {
+      hideStatus();
     });
   }
 

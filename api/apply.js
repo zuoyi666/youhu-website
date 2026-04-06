@@ -46,7 +46,7 @@ function buildMessage(payload, lang) {
     buildSection("4. 是否愿意连续 3 周反馈", "4. Feedback commitment", payload.feedbackCommitment),
     buildSection("5. 最想更认识的自己", "5. The part of myself I want to understand better", payload.selfDiscovery),
     buildSection("昵称 / 代号", "Alias", payload.alias),
-    buildSection("联系方式", "Contact", payload.contact),
+    buildSection("邮箱", "Email", payload.email),
     buildSection("推荐邀请码", "Referral code", payload.referralCode || (lang === "zh" ? "无" : "None")),
     buildSection("浏览语言", "Browsing language", payload.lang === "zh" ? "中文" : "English"),
     buildSection("提交来源", "Source", "youhu.space /apply"),
@@ -70,15 +70,19 @@ function validatePayload(payload) {
     feedbackCommitment: cleanValue(payload.feedbackCommitment),
     selfDiscovery: cleanValue(payload.selfDiscovery),
     alias: cleanValue(payload.alias),
-    contact: cleanValue(payload.contact),
+    email: cleanValue(payload.email || payload.contact),
   };
 
   const missing = Object.entries(required)
     .filter(([, value]) => !value)
     .map(([key]) => key);
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const invalid = emailPattern.test(required.email) ? [] : ["email"];
+
   return {
     missing,
+    invalid,
     normalized: {
       ...required,
       referralCode: cleanValue(payload.referralCode),
@@ -101,12 +105,15 @@ module.exports = async (req, res) => {
     return json(res, 400, { ok: false, error: "invalid_json" });
   }
 
-  const { missing, normalized } = validatePayload(payload);
+  const { missing, invalid, normalized } = validatePayload(payload);
   if (normalized.website) {
     return json(res, 200, { ok: true, status: "ignored" });
   }
   if (missing.length) {
     return json(res, 400, { ok: false, error: "missing_fields", fields: missing });
+  }
+  if (invalid.length) {
+    return json(res, 400, { ok: false, error: "invalid_fields", fields: invalid });
   }
 
   const smtpHost = process.env.SMTP_HOST;
@@ -139,7 +146,7 @@ module.exports = async (req, res) => {
         normalized.lang === "zh"
           ? `Youhu 创世申请 · ${normalized.alias}`
           : `Youhu Founder Application · ${normalized.alias}`,
-      replyTo: normalized.contact,
+      replyTo: normalized.email,
       text: message.text,
       html: message.html,
     });
