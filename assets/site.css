@@ -1077,9 +1077,123 @@ img {
   margin-top: 0;
 }
 
+.page-hero-immersive {
+  padding: 86px 0 44px;
+}
+
+.page-hero-immersive .page-hero-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.page-hero-copy-tight {
+  max-width: 760px;
+}
+
+.page-hero-immersive .page-hero-copy h1 {
+  max-width: 12ch;
+  font-family: "Manrope", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+  font-size: clamp(3.1rem, 4.9vw, 5rem);
+  line-height: 0.93;
+  letter-spacing: -0.07em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.page-hero-display {
+  display: grid;
+  gap: 18px;
+  align-content: center;
+}
+
+.page-hero-art {
+  position: relative;
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+}
+
+.page-hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 10% 8%;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(220, 180, 105, 0.2), rgba(220, 180, 105, 0.08) 24%, rgba(4, 15, 27, 0) 62%),
+    radial-gradient(circle at 50% 50%, rgba(118, 191, 228, 0.12), rgba(7, 23, 36, 0) 68%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.page-hero-emblem {
+  position: relative;
+  width: min(100%, 308px);
+  filter:
+    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 0 28px rgba(220, 180, 105, 0.16));
+  animation: icon-float 12s ease-in-out infinite;
+}
+
+.page-hero-badge {
+  max-width: 420px;
+  justify-self: end;
+  padding-top: 18px;
+  border-top: 1px solid rgba(151, 202, 224, 0.12);
+}
+
+.page-hero-badge p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.76;
+  color: var(--muted);
+}
+
+.page-hero-strip {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(151, 202, 224, 0.12);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.page-hero-strip-item {
+  min-width: 0;
+}
+
+.page-hero-strip-item strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.page-hero-strip-item span {
+  margin-top: 8px;
+  display: block;
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.page-hero-application .page-hero-copy h1 {
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 4.3vw, 4.5rem);
+}
+
+.page-hero-founders .page-hero-copy h1 {
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+}
+
+.page-section-application-form {
+  padding-top: 26px;
+}
+
 .legal-page,
 .apply-page {
-  padding-top: 60px;
+  padding-top: 0;
 }
 
 .legal-shell,
@@ -1115,12 +1229,16 @@ img {
 }
 
 .form-shell {
-  grid-template-columns: minmax(0, 0.86fr) minmax(300px, 0.48fr);
+  grid-template-columns: minmax(0, 0.94fr) minmax(280px, 0.42fr);
   align-items: start;
+  gap: 46px;
 }
 
 .form-panel {
-  padding: 28px;
+  padding: 32px;
+  background:
+    linear-gradient(180deg, rgba(8, 21, 34, 0.88), rgba(5, 14, 23, 0.76)),
+    radial-gradient(circle at 50% 0%, rgba(220, 180, 105, 0.06), transparent 52%);
 }
 
 .progress-track {
@@ -1304,6 +1422,38 @@ img {
   display: inline-flex;
 }
 
+.application-criteria {
+  position: sticky;
+  top: calc(var(--header-height) + 30px);
+  align-self: start;
+  padding-top: 10px;
+}
+
+.application-criteria h3 {
+  margin: 0 0 16px;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.application-criteria .status-list li {
+  padding-top: 18px;
+}
+
+.application-criteria .status-list span {
+  color: var(--muted);
+}
+
+.application-criteria-note {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(151, 202, 224, 0.12);
+  font-size: 13px;
+  line-height: 1.78;
+  color: var(--soft);
+}
+
 .status-box {
   display: none;
   margin-top: 24px;
@@ -1364,6 +1514,37 @@ img {
 
 .status-actions {
   margin-top: 20px;
+}
+
+.founder-rights-grid {
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 36px;
+}
+
+.founder-benefit-lines {
+  margin-top: 0;
+}
+
+.founder-benefit-lines .story-line {
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 22px;
+}
+
+.founder-benefit-lines .story-line p {
+  color: var(--text);
+}
+
+.founder-rules-grid {
+  align-items: stretch;
+}
+
+.founder-stage-card-invite {
+  gap: 18px;
+  text-align: center;
+}
+
+.founder-stage-card-invite img {
+  justify-self: center;
 }
 
 .application-preview {
@@ -1434,6 +1615,26 @@ img {
   .cta-band {
     padding-inline: 0;
   }
+
+  .page-hero-immersive .page-hero-inner,
+  .founder-rights-grid {
+    gap: 32px;
+  }
+
+  .page-hero-display,
+  .page-hero-badge {
+    justify-self: start;
+  }
+
+  .page-hero-strip {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .application-criteria {
+    position: static;
+    padding-top: 0;
+  }
 }
 
 @media (max-width: 780px) {
@@ -1474,6 +1675,10 @@ img {
   .hero-poster-inner,
   .page-hero-inner {
     gap: 28px;
+  }
+
+  .page-hero-immersive {
+    padding: 72px 0 24px;
   }
 
   .hero-copy h1,
@@ -1521,6 +1726,14 @@ img {
     min-height: 340px;
   }
 
+  .page-hero-art {
+    min-height: 300px;
+  }
+
+  .page-hero-emblem {
+    width: min(74vw, 240px);
+  }
+
   .amber-stage {
     width: min(82vw, 340px);
   }
@@ -1549,6 +1762,11 @@ img {
 
   .choice-grid {
     grid-template-columns: 1fr;
+  }
+
+  .founder-benefit-lines .story-line {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .wizard-actions {
