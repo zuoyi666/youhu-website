@@ -1313,11 +1313,53 @@ img {
   display: block;
 }
 
+.status-box-application {
+  padding: 34px;
+}
+
+.status-kicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
 .status-box h3 {
-  margin: 0 0 10px;
+  margin: 12px 0 10px;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: 2rem;
   line-height: 1;
+}
+
+.status-flow {
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.status-flow-item {
+  padding-top: 14px;
+  border-top: 1px solid rgba(151, 202, 224, 0.12);
+}
+
+.status-flow-item strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.status-flow-item span {
+  margin-top: 8px;
+  display: block;
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.status-box[data-state="error"] .status-flow {
+  display: none;
 }
 
 .status-actions {

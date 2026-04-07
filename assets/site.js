@@ -69,36 +69,80 @@
   const progressCurrent = form.querySelector("[data-progress-current]");
   const progressTotal = form.querySelector("[data-progress-total]");
   const statusBox = document.querySelector("[data-application-status]");
+  const statusKicker = statusBox?.querySelector("[data-status-kicker]");
   const statusHeading = statusBox?.querySelector("[data-status-heading]");
   const statusBodies = Array.from(
     statusBox?.querySelectorAll("[data-status-body]") || []
   );
+  const statusNote = statusBox?.querySelector("[data-status-note]");
+  const foundersLink = document.querySelector("[data-status-founders]");
   const retryButton = document.querySelector("[data-status-retry]");
   let currentStep = 0;
   let isSubmitting = false;
 
   const statusMessages = {
     success: {
-      zh: {
-        heading: "申请已提交。",
-        body: "你的申请已经通过网站提交到 `support@youhu.space`。如果你被选中，我们会通过你留下的邮箱联系你，并发出 Founder 邀请码。",
+      kicker: {
+        zh: "申请已送达",
+        en: "Application Received",
       },
-      en: {
-        heading: "Application submitted.",
-        body: "Your application has been submitted through the website to `support@youhu.space`. If selected, we will reach out through your email and send your founder invite code.",
+      heading: {
+        zh: "申请已经进入海面之下。",
+        en: "Your application has entered the water.",
+      },
+      body: {
+        zh: "我们已经收到你的整份问卷。接下来，我们会认真阅读这 20 道回答，而不只是看几个标签。",
+        en: "We have received your full questionnaire. From here, we read the 20 answers carefully instead of reducing you to a few labels.",
+      },
+      note: {
+        zh: "如果你被选中，我们会通过邮箱发出 Founder 邀请、后续说明，以及对应编号的激活方式。",
+        en: "If selected, we will email your founder invite, next steps, and the activation path for your numbered seat.",
       },
     },
     error: {
-      zh: {
-        heading: "提交失败。",
-        body: "这次提交没有成功送达。请返回表单后再试一次，或稍后重新提交。",
+      kicker: {
+        zh: "提交未送达",
+        en: "Submission Error",
       },
-      en: {
-        heading: "Submission failed.",
-        body: "This submission did not go through successfully. Return to the form and try again, or submit later.",
+      heading: {
+        zh: "提交失败。",
+        en: "Submission failed.",
+      },
+      body: {
+        zh: "这次提交没有成功送达。请返回表单后再试一次，或稍后重新提交。",
+        en: "This submission did not go through successfully. Return to the form and try again, or submit later.",
+      },
+      note: {
+        zh: "如果你已经写完，先不要担心，返回表单后内容仍然会保留在当前页面里，直到你刷新。",
+        en: "If you already finished the questionnaire, do not worry. Your answers stay on the page until you refresh.",
       },
     },
   };
+
+  function setLocalizedCopy(node, copy) {
+    if (!node || !copy) {
+      return;
+    }
+
+    const zhNode = node.classList.contains("lang-zh")
+      ? node
+      : node.querySelector(".lang-zh");
+    const enNode = node.classList.contains("lang-en")
+      ? node
+      : node.querySelector(".lang-en");
+
+    if (zhNode || enNode) {
+      if (zhNode) {
+        zhNode.textContent = copy.zh;
+      }
+      if (enNode) {
+        enNode.textContent = copy.en;
+      }
+      return;
+    }
+
+    node.textContent = currentLang === "zh" ? copy.zh : copy.en;
+  }
 
   function setStep(index) {
     currentStep = index;
@@ -230,21 +274,25 @@
   }
 
   function updateStatus(kind) {
-    const message = statusMessages[kind]?.[currentLang] || statusMessages.error[currentLang];
-    if (statusHeading) {
-      statusHeading.textContent = message.heading;
-    }
+    const message = statusMessages[kind] || statusMessages.error;
+    setLocalizedCopy(statusKicker, message.kicker);
+    setLocalizedCopy(statusHeading, message.heading);
     statusBodies.forEach((node) => {
-      node.textContent = message.body;
+      setLocalizedCopy(node, message.body);
     });
+    setLocalizedCopy(statusNote, message.note);
     if (flow) {
       flow.hidden = true;
     }
     if (statusBox) {
+      statusBox.dataset.state = kind;
       statusBox.classList.add("is-visible");
     }
     if (retryButton) {
       retryButton.style.display = kind === "error" ? "inline-flex" : "none";
+    }
+    if (foundersLink) {
+      foundersLink.style.display = kind === "success" ? "inline-flex" : "none";
     }
   }
 
@@ -253,10 +301,14 @@
       flow.hidden = false;
     }
     if (statusBox) {
+      statusBox.dataset.state = "";
       statusBox.classList.remove("is-visible");
     }
     if (retryButton) {
       retryButton.style.display = "none";
+    }
+    if (foundersLink) {
+      foundersLink.style.display = "none";
     }
   }
 
@@ -264,14 +316,12 @@
     isSubmitting = nextValue;
     if (submitButton) {
       submitButton.disabled = nextValue;
-      submitButton.textContent =
+      setLocalizedCopy(
+        submitButton,
         nextValue
-          ? currentLang === "zh"
-            ? "提交中..."
-            : "Submitting..."
-          : currentLang === "zh"
-            ? "提交申请"
-            : "Submit Application";
+          ? { zh: "提交中...", en: "Submitting..." }
+          : { zh: "提交申请", en: "Submit Application" }
+      );
     }
     if (nextButton) {
       nextButton.disabled = nextValue;
