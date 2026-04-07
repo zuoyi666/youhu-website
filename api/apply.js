@@ -31,6 +31,29 @@ function cleanValue(value) {
   return String(value || "").trim();
 }
 
+const RESPONSE_KEYS = [
+  "rituals",
+  "logging_frequency",
+  "primary_tool",
+  "practice_timeline",
+  "hold_moment",
+  "distress_response",
+  "self_description",
+  "revisit_frequency",
+  "reflection_goal",
+  "hardest_part",
+  "messy_writing",
+  "long_view",
+  "entry_point",
+  "product_role",
+  "feedback_commitment",
+  "feedback_style",
+  "unclear_moment",
+  "recurring_pattern",
+  "six_month_change",
+  "founder_contribution",
+];
+
 function buildSection(titleZh, titleEn, value) {
   return {
     zh: `${titleZh}：${value || "未填写"}`,
@@ -39,18 +62,23 @@ function buildSection(titleZh, titleEn, value) {
 }
 
 function buildMessage(payload, lang) {
-  const sections = [
-    buildSection("1. 过去 30 天的方式", "1. Rituals in the last 30 days", payload.rituals),
-    buildSection("2. 使用频率", "2. Usage frequency", payload.frequency),
-    buildSection("3. 最想被接住的时刻", "3. When I most want to be held", payload.moment),
-    buildSection("4. 是否愿意连续 3 周反馈", "4. Feedback commitment", payload.feedbackCommitment),
-    buildSection("5. 最想更认识的自己", "5. The part of myself I want to understand better", payload.selfDiscovery),
+  const questionSections = payload.responses.map((entry) =>
+    buildSection(
+      cleanValue(entry.labelZh) || cleanValue(entry.key),
+      cleanValue(entry.labelEn) || cleanValue(entry.key),
+      cleanValue(entry.answer)
+    )
+  );
+
+  const metaSections = [
     buildSection("昵称 / 代号", "Alias", payload.alias),
     buildSection("邮箱", "Email", payload.email),
     buildSection("推荐邀请码", "Referral code", payload.referralCode || (lang === "zh" ? "无" : "None")),
     buildSection("浏览语言", "Browsing language", payload.lang === "zh" ? "中文" : "English"),
     buildSection("提交来源", "Source", "youhu.space /apply"),
   ];
+
+  const sections = [...questionSections, ...metaSections];
 
   return {
     text: sections
@@ -63,19 +91,27 @@ function buildMessage(payload, lang) {
 }
 
 function validatePayload(payload) {
+  const responses = Array.isArray(payload.responses)
+    ? payload.responses.map((entry) => ({
+        key: cleanValue(entry.key),
+        labelZh: cleanValue(entry.labelZh),
+        labelEn: cleanValue(entry.labelEn),
+        answer: cleanValue(entry.answer),
+      }))
+    : [];
+
+  const responseMap = new Map(responses.map((entry) => [entry.key, entry]));
+  const missingResponses = RESPONSE_KEYS.filter((key) => !cleanValue(responseMap.get(key)?.answer));
+
   const required = {
-    rituals: cleanValue(payload.rituals),
-    frequency: cleanValue(payload.frequency),
-    moment: cleanValue(payload.moment),
-    feedbackCommitment: cleanValue(payload.feedbackCommitment),
-    selfDiscovery: cleanValue(payload.selfDiscovery),
     alias: cleanValue(payload.alias),
     email: cleanValue(payload.email || payload.contact),
   };
 
   const missing = Object.entries(required)
     .filter(([, value]) => !value)
-    .map(([key]) => key);
+    .map(([key]) => key)
+    .concat(missingResponses);
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const invalid = emailPattern.test(required.email) ? [] : ["email"];
@@ -84,7 +120,9 @@ function validatePayload(payload) {
     missing,
     invalid,
     normalized: {
-      ...required,
+      alias: required.alias,
+      email: required.email,
+      responses: RESPONSE_KEYS.map((key) => responseMap.get(key)).filter(Boolean),
       referralCode: cleanValue(payload.referralCode),
       lang: cleanValue(payload.lang) === "en" ? "en" : "zh",
       website: cleanValue(payload.website),

@@ -16,8 +16,8 @@
   data-lang="zh"
   data-title-zh="Youhu | 创世申请"
   data-title-en="Youhu | Founder Application"
-  data-description-zh="回答 5 个问题，看看你是否属于最早的这一百位。"
-  data-description-en="Answer five questions and see whether you belong in the earliest hundred."
+  data-description-zh="回答 20 道创世问题，看看你是否真的属于最早的这一百位。"
+  data-description-en="Answer twenty founder questions and see whether you truly belong in the earliest hundred."
 >
   <header class="site-header">
     <div class="site-header-inner">
@@ -63,11 +63,11 @@
             <span class="lang-en">Application</span>
           </div>
           <h1>
-            <span class="lang-zh">回答 5 个问题，看看你是否属于最早的这一百位。</span>
-            <span class="lang-en">Answer five questions and see if you belong in the earliest hundred.</span>
+            <span class="lang-zh">回答 20 道创世问题，看看你是否真的属于最早的这一百位。</span>
+            <span class="lang-en">Answer twenty founder questions and see whether you truly belong in the earliest hundred.</span>
           </h1>
-          <p class="lang-zh">我们优先邀请真正长期使用过日记、情绪记录、心理相关产品或自我觉察工具的人。这不是筛选“最完美的用户”，而是筛选“最深的用户”。</p>
-          <p class="lang-en">We prioritize people who already use journaling, emotional tracking, therapy-adjacent tools, or self-reflection products in real life. This is not about selecting perfect users. It is about selecting deep ones.</p>
+          <p class="lang-zh">这不是一张泛泛的报名表。我们会用 20 道问题看你是否真的有长期自我记录习惯、是否愿意回看自己、是否能容纳复杂情绪，以及你会不会成为有价值的 Founder 共建者。</p>
+          <p class="lang-en">This is not a generic signup form. These 20 questions help us see whether you already have a long-term reflective habit, whether you revisit yourself over time, whether you can hold emotional complexity, and whether you would become a valuable founder collaborator.</p>
         </div>
 
         <form class="form-panel" data-apply-form novalidate>
@@ -76,108 +76,348 @@
           </div>
           <div class="progress-meta">
             <span>
-              <span class="lang-zh">当前步骤</span>
-              <span class="lang-en">Current Step</span>
+              <span class="lang-zh">当前部分</span>
+              <span class="lang-en">Current Section</span>
             </span>
             <span><span data-progress-current>01</span> / <span data-progress-total>06</span></span>
           </div>
 
-          <section class="wizard-step" data-step data-required-group="rituals">
+          <section class="wizard-step" data-step>
             <div class="step-label">
-              <span class="lang-zh">问题 1</span>
-              <span class="lang-en">Question 1</span>
+              <span class="lang-zh">第一部分 / 5</span>
+              <span class="lang-en">Part 1 / 5</span>
             </div>
             <h2>
-              <span class="lang-zh">过去 30 天，你用过哪些方式处理情绪或整理内心？</span>
-              <span class="lang-en">In the last 30 days, which rituals have you used to process emotion or sort through your inner life?</span>
+              <span class="lang-zh">先确认你已经有一套和自己相处的方式。</span>
+              <span class="lang-en">First, we want to understand whether you already have a real practice of working with yourself.</span>
             </h2>
-            <p class="lang-zh">可多选。我们在找已经有长期习惯的人。</p>
-            <p class="lang-en">Choose as many as apply. We are looking for people who already have habits here.</p>
-            <div class="choice-grid">
-              <label class="choice"><input type="checkbox" name="rituals" value="journaling"><span><span class="lang-zh">写日记</span><span class="lang-en">Journaling</span></span></label>
-              <label class="choice"><input type="checkbox" name="rituals" value="mood-app"><span><span class="lang-zh">情绪记录 App</span><span class="lang-en">Mood tracking apps</span></span></label>
-              <label class="choice"><input type="checkbox" name="rituals" value="ai-dialogue"><span><span class="lang-zh">AI 倾诉 / 对话</span><span class="lang-en">AI reflection or dialogue</span></span></label>
-              <label class="choice"><input type="checkbox" name="rituals" value="therapy"><span><span class="lang-zh">心理咨询 / 教练</span><span class="lang-en">Therapy or coaching</span></span></label>
-              <label class="choice"><input type="checkbox" name="rituals" value="meditation"><span><span class="lang-zh">冥想 / 身体练习</span><span class="lang-en">Meditation or body-based practice</span></span></label>
-              <label class="choice"><input type="checkbox" name="rituals" value="none"><span><span class="lang-zh">几乎没有稳定方式</span><span class="lang-en">Almost no stable ritual yet</span></span></label>
-            </div>
-          </section>
+            <p class="lang-zh">这四题看的是你有没有稳定习惯，而不是一时兴趣。</p>
+            <p class="lang-en">These four questions are about habit depth, not momentary curiosity.</p>
+            <div class="question-stack">
+              <div class="question-block" data-question data-answer-key="rituals" data-required-group="rituals" data-allow-multiple="true" data-label-zh="1. 过去 30 天，你实际用过哪些方式整理自己？" data-label-en="1. In the last 30 days, which practices did you actually use to process yourself?">
+                <h3 class="question-title">
+                  <span class="lang-zh">1. 过去 30 天，你实际用过哪些方式整理自己？</span>
+                  <span class="lang-en">1. In the last 30 days, which practices did you actually use to process yourself?</span>
+                </h3>
+                <p class="question-hint lang-zh">可多选。</p>
+                <p class="question-hint lang-en">Choose all that apply.</p>
+                <div class="choice-grid">
+                  <label class="choice"><input type="checkbox" name="rituals" value="journaling"><span><span class="lang-zh">手写或电子日记</span><span class="lang-en">Handwritten or digital journaling</span></span></label>
+                  <label class="choice"><input type="checkbox" name="rituals" value="mood-app"><span><span class="lang-zh">情绪追踪 App</span><span class="lang-en">Mood tracking apps</span></span></label>
+                  <label class="choice"><input type="checkbox" name="rituals" value="ai-dialogue"><span><span class="lang-zh">AI 倾诉 / 自我对话</span><span class="lang-en">AI reflection or dialogue</span></span></label>
+                  <label class="choice"><input type="checkbox" name="rituals" value="therapy"><span><span class="lang-zh">心理咨询 / 教练</span><span class="lang-en">Therapy or coaching</span></span></label>
+                  <label class="choice"><input type="checkbox" name="rituals" value="meditation"><span><span class="lang-zh">冥想 / 身体练习</span><span class="lang-en">Meditation or body-based practice</span></span></label>
+                  <label class="choice"><input type="checkbox" name="rituals" value="none"><span><span class="lang-zh">几乎没有固定方式</span><span class="lang-en">Almost no stable ritual yet</span></span></label>
+                </div>
+              </div>
 
-          <section class="wizard-step" data-step data-required-group="frequency">
-            <div class="step-label">
-              <span class="lang-zh">问题 2</span>
-              <span class="lang-en">Question 2</span>
-            </div>
-            <h2>
-              <span class="lang-zh">你使用这类工具的频率，更接近哪一种？</span>
-              <span class="lang-en">Which pattern is closest to your actual usage frequency?</span>
-            </h2>
-            <div class="choice-grid">
-              <label class="choice"><input type="radio" name="frequency" value="daily"><span><span class="lang-zh">几乎每天</span><span class="lang-en">Almost every day</span></span></label>
-              <label class="choice"><input type="radio" name="frequency" value="3-5"><span><span class="lang-zh">每周 3-5 次</span><span class="lang-en">Three to five times a week</span></span></label>
-              <label class="choice"><input type="radio" name="frequency" value="1-2"><span><span class="lang-zh">每周 1-2 次</span><span class="lang-en">Once or twice a week</span></span></label>
-              <label class="choice"><input type="radio" name="frequency" value="sporadic"><span><span class="lang-zh">偶尔，只有状态差时</span><span class="lang-en">Sporadically, mostly when things get rough</span></span></label>
-            </div>
-          </section>
+              <div class="question-block" data-question data-answer-key="logging_frequency" data-required-group="logging_frequency" data-label-zh="2. 最近一个月，你平均每周会主动记录几次？" data-label-en="2. Over the last month, how many times per week did you intentionally record something about yourself?">
+                <h3 class="question-title">
+                  <span class="lang-zh">2. 最近一个月，你平均每周会主动记录几次？</span>
+                  <span class="lang-en">2. Over the last month, how many times per week did you intentionally record something about yourself?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="logging_frequency" value="daily"><span><span class="lang-zh">几乎每天</span><span class="lang-en">Almost every day</span></span></label>
+                  <label class="choice"><input type="radio" name="logging_frequency" value="three_to_five"><span><span class="lang-zh">每周 3 到 5 次</span><span class="lang-en">Three to five times a week</span></span></label>
+                  <label class="choice"><input type="radio" name="logging_frequency" value="one_to_two"><span><span class="lang-zh">每周 1 到 2 次</span><span class="lang-en">Once or twice a week</span></span></label>
+                  <label class="choice"><input type="radio" name="logging_frequency" value="sporadic"><span><span class="lang-zh">偶尔，主要在状态差时</span><span class="lang-en">Sporadically, mostly when things get rough</span></span></label>
+                </div>
+              </div>
 
-          <section class="wizard-step" data-step data-required-group="moment">
-            <div class="step-label">
-              <span class="lang-zh">问题 3</span>
-              <span class="lang-en">Question 3</span>
-            </div>
-            <h2>
-              <span class="lang-zh">你最希望一个产品真正接住你的时刻，通常是什么时刻？</span>
-              <span class="lang-en">When do you most want a product to genuinely hold you?</span>
-            </h2>
-            <div class="choice-grid">
-              <label class="choice"><input type="radio" name="moment" value="chaotic"><span><span class="lang-zh">情绪很乱但说不清</span><span class="lang-en">When everything feels chaotic and hard to explain</span></span></label>
-              <label class="choice"><input type="radio" name="moment" value="night"><span><span class="lang-zh">深夜反复内耗</span><span class="lang-en">Late-night overthinking loops</span></span></label>
-              <label class="choice"><input type="radio" name="moment" value="after-pressure"><span><span class="lang-zh">白天高压后想整理自己</span><span class="lang-en">After a high-pressure day when I need to sort myself out</span></span></label>
-              <label class="choice"><input type="radio" name="moment" value="review"><span><span class="lang-zh">想回看自己一段时间的变化</span><span class="lang-en">When I want to review how I have changed over time</span></span></label>
-            </div>
-          </section>
+              <div class="question-block" data-question data-answer-key="primary_tool" data-required-group="primary_tool" data-label-zh="3. 你现在最常依赖哪一种方式？" data-label-en="3. Which option do you currently rely on the most?">
+                <h3 class="question-title">
+                  <span class="lang-zh">3. 你现在最常依赖哪一种方式？</span>
+                  <span class="lang-en">3. Which option do you currently rely on the most?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="primary_tool" value="journal"><span><span class="lang-zh">日记或备忘录</span><span class="lang-en">Journal or notes app</span></span></label>
+                  <label class="choice"><input type="radio" name="primary_tool" value="mood_app"><span><span class="lang-zh">情绪记录 App</span><span class="lang-en">Mood tracking app</span></span></label>
+                  <label class="choice"><input type="radio" name="primary_tool" value="ai"><span><span class="lang-zh">AI 对话</span><span class="lang-en">AI dialogue</span></span></label>
+                  <label class="choice"><input type="radio" name="primary_tool" value="therapy"><span><span class="lang-zh">咨询 / 教练关系</span><span class="lang-en">Therapy or coaching relationship</span></span></label>
+                  <label class="choice"><input type="radio" name="primary_tool" value="voice"><span><span class="lang-zh">语音备忘 / 自言自语</span><span class="lang-en">Voice notes or talking to myself</span></span></label>
+                  <label class="choice"><input type="radio" name="primary_tool" value="none"><span><span class="lang-zh">其实还没有稳定主方式</span><span class="lang-en">I do not really have a stable primary method yet</span></span></label>
+                </div>
+              </div>
 
-          <section class="wizard-step" data-step data-required-group="feedback_commitment">
-            <div class="step-label">
-              <span class="lang-zh">问题 4</span>
-              <span class="lang-en">Question 4</span>
-            </div>
-            <h2>
-              <span class="lang-zh">如果进入创世计划，你愿意连续 3 周给出真实反馈吗？</span>
-              <span class="lang-en">If accepted into the founder cohort, are you willing to give honest feedback for three continuous weeks?</span>
-            </h2>
-            <div class="choice-grid">
-              <label class="choice"><input type="radio" name="feedback_commitment" value="yes"><span><span class="lang-zh">愿意</span><span class="lang-en">Yes, definitely</span></span></label>
-              <label class="choice"><input type="radio" name="feedback_commitment" value="maybe"><span><span class="lang-zh">看情况</span><span class="lang-en">Maybe, depending on timing</span></span></label>
-              <label class="choice"><input type="radio" name="feedback_commitment" value="no"><span><span class="lang-zh">不太愿意</span><span class="lang-en">Not really</span></span></label>
+              <div class="question-block" data-question data-answer-key="practice_timeline" data-required-group="practice_timeline" data-label-zh="4. 你和“记录自己”这件事，大概持续多久了？" data-label-en="4. How long have you had any ongoing practice of recording yourself?">
+                <h3 class="question-title">
+                  <span class="lang-zh">4. 你和“记录自己”这件事，大概持续多久了？</span>
+                  <span class="lang-en">4. How long have you had any ongoing practice of recording yourself?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="practice_timeline" value="under_one_month"><span><span class="lang-zh">不到 1 个月</span><span class="lang-en">Less than one month</span></span></label>
+                  <label class="choice"><input type="radio" name="practice_timeline" value="one_to_six_months"><span><span class="lang-zh">1 到 6 个月</span><span class="lang-en">One to six months</span></span></label>
+                  <label class="choice"><input type="radio" name="practice_timeline" value="six_to_twentyfour_months"><span><span class="lang-zh">6 到 24 个月</span><span class="lang-en">Six to twenty-four months</span></span></label>
+                  <label class="choice"><input type="radio" name="practice_timeline" value="over_two_years"><span><span class="lang-zh">超过 2 年</span><span class="lang-en">More than two years</span></span></label>
+                </div>
+              </div>
             </div>
           </section>
 
           <section class="wizard-step" data-step>
             <div class="step-label">
-              <span class="lang-zh">问题 5</span>
-              <span class="lang-en">Question 5</span>
+              <span class="lang-zh">第二部分 / 5</span>
+              <span class="lang-en">Part 2 / 5</span>
             </div>
             <h2>
-              <span class="lang-zh">如果加入 Youhu，你最想更认识的是哪一部分自己？</span>
-              <span class="lang-en">If you join Youhu, which part of yourself do you most want to understand better?</span>
+              <span class="lang-zh">接下来，我们看你如何和情绪相处。</span>
+              <span class="lang-en">Next, we look at how you actually move with emotion.</span>
             </h2>
-            <p class="lang-zh">尽量具体。120 到 180 字最合适。</p>
-            <p class="lang-en">Try to be concrete. About 120 to 180 words is ideal.</p>
-            <div class="input-grid">
-              <textarea class="text-area" name="self_discovery" data-required-text placeholder="例如：我想看清自己为什么总在高压后突然失语，为什么最需要被理解的时候反而更想躲起来。"></textarea>
+            <p class="lang-zh">这四题会暴露你的真实模式，而不是你理想中的自己。</p>
+            <p class="lang-en">These four questions are meant to surface your actual patterns, not your ideal self-image.</p>
+            <div class="question-stack">
+              <div class="question-block" data-question data-answer-key="hold_moment" data-required-group="hold_moment" data-label-zh="5. 你最希望一个产品真正接住你的时刻，通常是什么时刻？" data-label-en="5. When do you most want a product to genuinely hold you?">
+                <h3 class="question-title">
+                  <span class="lang-zh">5. 你最希望一个产品真正接住你的时刻，通常是什么时刻？</span>
+                  <span class="lang-en">5. When do you most want a product to genuinely hold you?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="hold_moment" value="chaotic"><span><span class="lang-zh">情绪很乱，但根本说不清</span><span class="lang-en">When everything feels chaotic and hard to explain</span></span></label>
+                  <label class="choice"><input type="radio" name="hold_moment" value="night"><span><span class="lang-zh">深夜反复内耗</span><span class="lang-en">Late-night overthinking loops</span></span></label>
+                  <label class="choice"><input type="radio" name="hold_moment" value="after_pressure"><span><span class="lang-zh">白天高压后，想慢慢整理自己</span><span class="lang-en">After a high-pressure day when I need to sort myself out</span></span></label>
+                  <label class="choice"><input type="radio" name="hold_moment" value="review"><span><span class="lang-zh">想回看自己一段时间的变化</span><span class="lang-en">When I want to review how I have changed over time</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="distress_response" data-required-group="distress_response" data-label-zh="6. 当你状态不好时，你的第一反应通常是什么？" data-label-en="6. When you are not doing well, what is your usual first response?">
+                <h3 class="question-title">
+                  <span class="lang-zh">6. 当你状态不好时，你的第一反应通常是什么？</span>
+                  <span class="lang-en">6. When you are not doing well, what is your usual first response?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="distress_response" value="hide"><span><span class="lang-zh">先躲起来，不太想说</span><span class="lang-en">I hide first and do not want to talk</span></span></label>
+                  <label class="choice"><input type="radio" name="distress_response" value="talk"><span><span class="lang-zh">先找人说一说</span><span class="lang-en">I reach out to someone and talk</span></span></label>
+                  <label class="choice"><input type="radio" name="distress_response" value="write"><span><span class="lang-zh">先写下来或记录下来</span><span class="lang-en">I write or record it down first</span></span></label>
+                  <label class="choice"><input type="radio" name="distress_response" value="numb"><span><span class="lang-zh">先刷东西 / 工作 / 睡觉，把自己麻掉</span><span class="lang-en">I numb out with scrolling, work, or sleep</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="self_description" data-required-group="self_description" data-label-zh="7. 下面哪种描述最像你？" data-label-en="7. Which description feels closest to you?">
+                <h3 class="question-title">
+                  <span class="lang-zh">7. 下面哪种描述最像你？</span>
+                  <span class="lang-en">7. Which description feels closest to you?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="self_description" value="sensitive"><span><span class="lang-zh">高敏感，很多波动都感受得很细</span><span class="lang-en">I am highly sensitive and feel many fluctuations in detail</span></span></label>
+                  <label class="choice"><input type="radio" name="self_description" value="functional_then_collapse"><span><span class="lang-zh">白天看起来正常，晚上才开始塌</span><span class="lang-en">I function in the day and only collapse later at night</span></span></label>
+                  <label class="choice"><input type="radio" name="self_description" value="analyze_others"><span><span class="lang-zh">很会理解别人，但不太会理解自己</span><span class="lang-en">I can understand others well but struggle to read myself</span></span></label>
+                  <label class="choice"><input type="radio" name="self_description" value="feel_without_trace"><span><span class="lang-zh">情绪很多，但经常留不下痕迹</span><span class="lang-en">I feel a lot, but rarely leave a usable trace behind</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="revisit_frequency" data-required-group="revisit_frequency" data-label-zh="8. 你会回看自己以前的记录吗？" data-label-en="8. Do you ever revisit your previous records?">
+                <h3 class="question-title">
+                  <span class="lang-zh">8. 你会回看自己以前的记录吗？</span>
+                  <span class="lang-en">8. Do you ever revisit your previous records?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="revisit_frequency" value="often"><span><span class="lang-zh">经常，会主动回看模式</span><span class="lang-en">Often. I intentionally revisit patterns</span></span></label>
+                  <label class="choice"><input type="radio" name="revisit_frequency" value="sometimes"><span><span class="lang-zh">偶尔，主要在某些节点</span><span class="lang-en">Sometimes, mostly at particular moments</span></span></label>
+                  <label class="choice"><input type="radio" name="revisit_frequency" value="rarely"><span><span class="lang-zh">很少，写完就过去了</span><span class="lang-en">Rarely. Once I record it, I move on</span></span></label>
+                  <label class="choice"><input type="radio" name="revisit_frequency" value="never"><span><span class="lang-zh">几乎不会</span><span class="lang-en">Almost never</span></span></label>
+                </div>
+              </div>
             </div>
           </section>
 
           <section class="wizard-step" data-step>
             <div class="step-label">
-              <span class="lang-zh">邮箱</span>
-              <span class="lang-en">Email</span>
+              <span class="lang-zh">第三部分 / 5</span>
+              <span class="lang-en">Part 3 / 5</span>
+            </div>
+            <h2>
+              <span class="lang-zh">然后，我们看你的反思深度。</span>
+              <span class="lang-en">Then we look at the depth of your reflective practice.</span>
+            </h2>
+            <p class="lang-zh">这四题主要看你是不是只想宣泄，还是已经在追踪自己的长期轮廓。</p>
+            <p class="lang-en">These four questions help us tell whether you mostly want release, or whether you are already tracking a longer shape of yourself.</p>
+            <div class="question-stack">
+              <div class="question-block" data-question data-answer-key="reflection_goal" data-required-group="reflection_goal" data-label-zh="9. 你记录时，最想得到的是什么？" data-label-en="9. When you record yourself, what do you most hope to get from it?">
+                <h3 class="question-title">
+                  <span class="lang-zh">9. 你记录时，最想得到的是什么？</span>
+                  <span class="lang-en">9. When you record yourself, what do you most hope to get from it?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="reflection_goal" value="release"><span><span class="lang-zh">先释放一下，不要憋着</span><span class="lang-en">Relief. I just need to get it out</span></span></label>
+                  <label class="choice"><input type="radio" name="reflection_goal" value="clarity"><span><span class="lang-zh">把自己说清一点</span><span class="lang-en">Clarity. I want to articulate myself better</span></span></label>
+                  <label class="choice"><input type="radio" name="reflection_goal" value="pattern"><span><span class="lang-zh">看见长期模式</span><span class="lang-en">Pattern recognition over time</span></span></label>
+                  <label class="choice"><input type="radio" name="reflection_goal" value="memory"><span><span class="lang-zh">留下以后还会回看的痕迹</span><span class="lang-en">A trace worth revisiting later</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="hardest_part" data-required-group="hardest_part" data-label-zh="10. 对你来说，最难长期坚持的是哪一件事？" data-label-en="10. Which part is hardest for you to maintain over time?">
+                <h3 class="question-title">
+                  <span class="lang-zh">10. 对你来说，最难长期坚持的是哪一件事？</span>
+                  <span class="lang-en">10. Which part is hardest for you to maintain over time?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="hardest_part" value="consistency"><span><span class="lang-zh">持续记录</span><span class="lang-en">Consistency in recording</span></span></label>
+                  <label class="choice"><input type="radio" name="hardest_part" value="honesty"><span><span class="lang-zh">写得足够诚实</span><span class="lang-en">Writing honestly enough</span></span></label>
+                  <label class="choice"><input type="radio" name="hardest_part" value="revisit"><span><span class="lang-zh">回看并整理模式</span><span class="lang-en">Revisiting and organizing patterns</span></span></label>
+                  <label class="choice"><input type="radio" name="hardest_part" value="action"><span><span class="lang-zh">把洞察变成实际变化</span><span class="lang-en">Turning insight into change</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="messy_writing" data-required-group="messy_writing" data-label-zh="11. 你愿意把还没整理好的情绪原样写下来吗？" data-label-en="11. Are you willing to write down emotions before they are cleaned up or organized?">
+                <h3 class="question-title">
+                  <span class="lang-zh">11. 你愿意把还没整理好的情绪原样写下来吗？</span>
+                  <span class="lang-en">11. Are you willing to write down emotions before they are cleaned up or organized?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="messy_writing" value="yes"><span><span class="lang-zh">愿意，混乱本来就值得被留下</span><span class="lang-en">Yes. Messiness itself deserves to be kept</span></span></label>
+                  <label class="choice"><input type="radio" name="messy_writing" value="after_edit"><span><span class="lang-zh">会，但通常会先整理一下再写</span><span class="lang-en">Sometimes, but I usually clean it up first</span></span></label>
+                  <label class="choice"><input type="radio" name="messy_writing" value="safe_only"><span><span class="lang-zh">只有在足够安全的时候才可以</span><span class="lang-en">Only when the environment feels safe enough</span></span></label>
+                  <label class="choice"><input type="radio" name="messy_writing" value="hard"><span><span class="lang-zh">很难，我更习惯保持克制</span><span class="lang-en">It is difficult. I tend to stay controlled</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="long_view" data-required-group="long_view" data-label-zh="12. 如果你能长期看见一种变化，你最想看见哪一类？" data-label-en="12. If you could track one kind of change over time, which would matter most to you?">
+                <h3 class="question-title">
+                  <span class="lang-zh">12. 如果你能长期看见一种变化，你最想看见哪一类？</span>
+                  <span class="lang-en">12. If you could track one kind of change over time, which would matter most to you?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="long_view" value="triggers"><span><span class="lang-zh">反复触发我的情境和导火索</span><span class="lang-en">My recurring triggers and situations</span></span></label>
+                  <label class="choice"><input type="radio" name="long_view" value="relationships"><span><span class="lang-zh">我在关系里的模式</span><span class="lang-en">My patterns inside relationships</span></span></label>
+                  <label class="choice"><input type="radio" name="long_view" value="energy"><span><span class="lang-zh">我的精力起伏和耗竭周期</span><span class="lang-en">My energy cycles and depletion patterns</span></span></label>
+                  <label class="choice"><input type="radio" name="long_view" value="identity"><span><span class="lang-zh">我是谁、我真正想要什么</span><span class="lang-en">Who I am and what I actually want</span></span></label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step>
+            <div class="step-label">
+              <span class="lang-zh">第四部分 / 5</span>
+              <span class="lang-en">Part 4 / 5</span>
+            </div>
+            <h2>
+              <span class="lang-zh">最后确认你和 Youhu 的匹配度。</span>
+              <span class="lang-en">Now we check how you fit with Youhu itself.</span>
+            </h2>
+            <p class="lang-zh">这四题看的是气质、关系和 Founder 共建能力。</p>
+            <p class="lang-en">These four questions are about resonance, relationship, and founder-level collaboration.</p>
+            <div class="question-stack">
+              <div class="question-block" data-question data-answer-key="entry_point" data-required-group="entry_point" data-label-zh="13. 你第一次被 Youhu 的哪一部分吸引？" data-label-en="13. Which part of Youhu pulled you in first?">
+                <h3 class="question-title">
+                  <span class="lang-zh">13. 你第一次被 Youhu 的哪一部分吸引？</span>
+                  <span class="lang-en">13. Which part of Youhu pulled you in first?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="entry_point" value="you_who"><span><span class="lang-zh">You Who 这个名字本身</span><span class="lang-en">The phrase “You Who” itself</span></span></label>
+                  <label class="choice"><input type="radio" name="entry_point" value="sea"><span><span class="lang-zh">存在之海这层意象</span><span class="lang-en">The idea of a sea of being</span></span></label>
+                  <label class="choice"><input type="radio" name="entry_point" value="constellation"><span><span class="lang-zh">灵魂星图这种长期视角</span><span class="lang-en">The long-view idea of a soul constellation</span></span></label>
+                  <label class="choice"><input type="radio" name="entry_point" value="amber"><span><span class="lang-zh">时光琥珀这种被时间包裹的感觉</span><span class="lang-en">The feeling of time held like amber</span></span></label>
+                  <label class="choice"><input type="radio" name="entry_point" value="founder"><span><span class="lang-zh">创世身份和编号感</span><span class="lang-en">The founder identity and numbering</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="product_role" data-required-group="product_role" data-label-zh="14. 如果 Youhu 对你真的有价值，它更像什么？" data-label-en="14. If Youhu becomes genuinely valuable to you, what would it feel like?">
+                <h3 class="question-title">
+                  <span class="lang-zh">14. 如果 Youhu 对你真的有价值，它更像什么？</span>
+                  <span class="lang-en">14. If Youhu becomes genuinely valuable to you, what would it feel like?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="product_role" value="mirror"><span><span class="lang-zh">一面更诚实的镜子</span><span class="lang-en">A more honest mirror</span></span></label>
+                  <label class="choice"><input type="radio" name="product_role" value="harbor"><span><span class="lang-zh">一个能先安放波动的地方</span><span class="lang-en">A harbor where inner movement can rest first</span></span></label>
+                  <label class="choice"><input type="radio" name="product_role" value="archive"><span><span class="lang-zh">一份长期回看的精神档案</span><span class="lang-en">A long-term archive of my inner life</span></span></label>
+                  <label class="choice"><input type="radio" name="product_role" value="constellation"><span><span class="lang-zh">一张能看见模式的星图</span><span class="lang-en">A constellation that reveals my patterns</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="feedback_commitment" data-required-group="feedback_commitment" data-label-zh="15. 如果进入创世计划，你愿意连续 3 周给出真实反馈吗？" data-label-en="15. If accepted, are you willing to give honest feedback for three continuous weeks?">
+                <h3 class="question-title">
+                  <span class="lang-zh">15. 如果进入创世计划，你愿意连续 3 周给出真实反馈吗？</span>
+                  <span class="lang-en">15. If accepted, are you willing to give honest feedback for three continuous weeks?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="feedback_commitment" value="yes"><span><span class="lang-zh">愿意，而且我会认真记录使用感受</span><span class="lang-en">Yes, and I would document my experience carefully</span></span></label>
+                  <label class="choice"><input type="radio" name="feedback_commitment" value="probably"><span><span class="lang-zh">大概率愿意，但节奏需要看当时状态</span><span class="lang-en">Probably, but it depends on my rhythm at the time</span></span></label>
+                  <label class="choice"><input type="radio" name="feedback_commitment" value="selective"><span><span class="lang-zh">我更适合在明确有感受时反馈</span><span class="lang-en">I am better when I only respond once I have something real to say</span></span></label>
+                  <label class="choice"><input type="radio" name="feedback_commitment" value="no"><span><span class="lang-zh">不太适合连续反馈</span><span class="lang-en">I am not a strong fit for continuous feedback</span></span></label>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="feedback_style" data-required-group="feedback_style" data-label-zh="16. 你更适合哪种反馈方式？" data-label-en="16. Which feedback style fits you best?">
+                <h3 class="question-title">
+                  <span class="lang-zh">16. 你更适合哪种反馈方式？</span>
+                  <span class="lang-en">16. Which feedback style fits you best?</span>
+                </h3>
+                <div class="choice-grid">
+                  <label class="choice"><input type="radio" name="feedback_style" value="structured_text"><span><span class="lang-zh">结构化文字反馈</span><span class="lang-en">Structured written feedback</span></span></label>
+                  <label class="choice"><input type="radio" name="feedback_style" value="voice_note"><span><span class="lang-zh">语音描述真实感受</span><span class="lang-en">Voice notes with raw reactions</span></span></label>
+                  <label class="choice"><input type="radio" name="feedback_style" value="screenshots"><span><span class="lang-zh">截图 + 问题点 + 建议</span><span class="lang-en">Screenshots plus issues and suggestions</span></span></label>
+                  <label class="choice"><input type="radio" name="feedback_style" value="conversation"><span><span class="lang-zh">更适合深聊式访谈</span><span class="lang-en">A deeper conversational interview</span></span></label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step>
+            <div class="step-label">
+              <span class="lang-zh">第五部分 / 5</span>
+              <span class="lang-en">Part 5 / 5</span>
+            </div>
+            <h2>
+              <span class="lang-zh">最后四题，留给真正重要的部分。</span>
+              <span class="lang-en">The last four questions are where the real signal usually appears.</span>
+            </h2>
+            <p class="lang-zh">请尽量具体。泛泛而谈很难帮助我们判断你是否真的适合成为 Founder。</p>
+            <p class="lang-en">Please be concrete. General answers make it hard for us to understand whether you are truly a founder fit.</p>
+            <div class="question-stack">
+              <div class="question-block" data-question data-answer-key="unclear_moment" data-label-zh="17. 最近一次你强烈觉得“我需要被理解，但我说不清”的时刻是什么？" data-label-en="17. Tell us about the most recent moment when you strongly felt “I need to be understood, but I cannot explain myself.”">
+                <h3 class="question-title">
+                  <span class="lang-zh">17. 最近一次你强烈觉得“我需要被理解，但我说不清”的时刻是什么？</span>
+                  <span class="lang-en">17. Tell us about the most recent moment when you strongly felt “I need to be understood, but I cannot explain myself.”</span>
+                </h3>
+                <div class="input-grid">
+                  <textarea class="text-area" name="unclear_moment" data-required-text placeholder="尽量写具体场景：发生了什么、你当时的状态、你为什么觉得自己说不清。"></textarea>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="recurring_pattern" data-label-zh="18. 你身上有没有一个反复出现、但一直没真正看清的模式？" data-label-en="18. Is there a recurring pattern in you that keeps returning, yet still feels unresolved or unseen?">
+                <h3 class="question-title">
+                  <span class="lang-zh">18. 你身上有没有一个反复出现、但一直没真正看清的模式？</span>
+                  <span class="lang-en">18. Is there a recurring pattern in you that keeps returning, yet still feels unresolved or unseen?</span>
+                </h3>
+                <div class="input-grid">
+                  <textarea class="text-area" name="recurring_pattern" data-required-text placeholder="例如：总在压力大时突然失语、总在最需要亲近时后退、总在关系里重复某种循环。"></textarea>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="six_month_change" data-label-zh="19. 如果 6 个月后 Youhu 对你真的很重要，它帮助你改变了什么？" data-label-en="19. If Youhu becomes genuinely important to you six months from now, what would it have changed?">
+                <h3 class="question-title">
+                  <span class="lang-zh">19. 如果 6 个月后 Youhu 对你真的很重要，它帮助你改变了什么？</span>
+                  <span class="lang-en">19. If Youhu becomes genuinely important to you six months from now, what would it have changed?</span>
+                </h3>
+                <div class="input-grid">
+                  <textarea class="text-area" name="six_month_change" data-required-text placeholder="不要写功能期待，写你希望自己会有什么不同。"></textarea>
+                </div>
+              </div>
+
+              <div class="question-block" data-question data-answer-key="founder_contribution" data-label-zh="20. 你会成为怎样的一位 Founder？你会带来什么样的使用深度或反馈价值？" data-label-en="20. What kind of founder would you be, and what kind of usage depth or feedback value would you bring?">
+                <h3 class="question-title">
+                  <span class="lang-zh">20. 你会成为怎样的一位 Founder？你会带来什么样的使用深度或反馈价值？</span>
+                  <span class="lang-en">20. What kind of founder would you be, and what kind of usage depth or feedback value would you bring?</span>
+                </h3>
+                <div class="input-grid">
+                  <textarea class="text-area" name="founder_contribution" data-required-text placeholder="例如：我会高频使用、会诚实反馈、会持续回看自己的变化，也会把抽象感受说清楚。"></textarea>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="wizard-step" data-step>
+            <div class="step-label">
+              <span class="lang-zh">最后一步</span>
+              <span class="lang-en">Final Step</span>
             </div>
             <h2>
               <span class="lang-zh">最后留下一个代号和邮箱。</span>
               <span class="lang-en">Leave an alias and your email.</span>
             </h2>
+            <p class="lang-zh">我们只会用这封邮箱和你沟通审核结果、邀请码与后续 Founder 事项。</p>
+            <p class="lang-en">We only use this email to send your review result, invite code, and founder follow-up details.</p>
             <div class="input-grid">
               <div class="input-row">
                 <label for="alias">
@@ -215,8 +455,8 @@
               </div>
             </div>
             <div class="form-note">
-              <span class="lang-zh">提交后，申请会直接发送到 `support@youhu.space`。请确认邮箱填写准确，以便我们向你发送后续通知。</span>
-              <span class="lang-en">After submission, the application will be sent directly to `support@youhu.space`. Please make sure your email is correct so we can follow up.</span>
+              <span class="lang-zh">整份问卷会直接发送到 `support@youhu.space`。请确认邮箱填写准确，以便我们向你发送后续通知。</span>
+              <span class="lang-en">The full questionnaire will be delivered directly to `support@youhu.space`. Please make sure your email is correct so we can follow up.</span>
             </div>
           </section>
 
@@ -264,27 +504,27 @@
         <ul class="status-list">
           <li>
             <strong>
-              <span class="lang-zh">不是最多的人</span>
-              <span class="lang-en">Not the largest crowd</span>
+              <span class="lang-zh">已有长期习惯</span>
+              <span class="lang-en">Already has a real practice</span>
             </strong>
-            <span class="lang-zh">我们要的是最匹配、最深、最可能长期留下来的人。</span>
-            <span class="lang-en">We are looking for the most resonant, deepest users, and the ones most likely to stay.</span>
+            <span class="lang-zh">我们优先选择已经在长期记录、回看、整理自己的人，而不是一时兴起的人。</span>
+            <span class="lang-en">We prioritize people who already record, revisit, and reflect over time rather than those arriving on impulse.</span>
           </li>
           <li>
             <strong>
-              <span class="lang-zh">不是拿福利</span>
-              <span class="lang-en">Not a giveaway</span>
+              <span class="lang-zh">能容纳复杂情绪</span>
+              <span class="lang-en">Can hold emotional complexity</span>
             </strong>
-            <span class="lang-zh">前 100 位创世身份是一种永久编号。对应的权益是终身免费解锁个人版标准付费功能，而不是促销折扣。</span>
-            <span class="lang-en">The first 100 founder identity is a permanent number. Its access model is lifetime unlock for standard individual paid features, not a promotional discount.</span>
+            <span class="lang-zh">我们在找的不是“情绪管理”用户，而是愿意面对混乱、也愿意留下痕迹的人。</span>
+            <span class="lang-en">We are not looking for simple mood-management users. We are looking for people willing to face complexity and leave traces behind.</span>
           </li>
           <li>
             <strong>
-              <span class="lang-zh">不是一次性试用</span>
-              <span class="lang-en">Not a one-off trial</span>
+              <span class="lang-zh">愿意长期共建</span>
+              <span class="lang-en">Willing to co-build over time</span>
             </strong>
-            <span class="lang-zh">我们优先选择愿意连续使用和反馈的人。</span>
-            <span class="lang-en">We prioritize people willing to use the product continuously and give feedback.</span>
+            <span class="lang-zh">我们优先选择愿意持续使用、真实反馈、并把 Founder 身份当作长期关系的人。</span>
+            <span class="lang-en">We prioritize people who will keep using the product, give honest feedback, and treat founder status as a long-term relationship.</span>
           </li>
         </ul>
       </aside>

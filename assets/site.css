@@ -1170,6 +1170,32 @@ img {
   line-height: 1.78;
 }
 
+.question-stack {
+  margin-top: 26px;
+  display: grid;
+  gap: 22px;
+}
+
+.question-block {
+  padding-top: 18px;
+  border-top: 1px solid rgba(151, 202, 224, 0.12);
+}
+
+.question-title {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.question-hint {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--soft);
+}
+
 .choice-grid,
 .input-grid {
   margin-top: 22px;

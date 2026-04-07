@@ -136,15 +136,32 @@
   }
 
   function stepIsValid(step) {
-    const requiredGroup = step.dataset.requiredGroup;
-    if (requiredGroup) {
-      const checked = form.querySelectorAll(`[name="${requiredGroup}"]:checked`);
-      if (!checked.length) {
-        return false;
+    const questions = Array.from(step.querySelectorAll("[data-question]"));
+    const questionValidity = questions.every((question) => {
+      const requiredGroup = question.dataset.requiredGroup;
+      if (requiredGroup) {
+        const checked = question.querySelectorAll(`[name="${requiredGroup}"]:checked`);
+        if (!checked.length) {
+          return false;
+        }
       }
+      const requiredText = Array.from(
+        question.querySelectorAll("[data-required-text]")
+      );
+      return requiredText.every((field) => {
+        const hasValue = field.value.trim().length > 0;
+        return hasValue && (!field.checkValidity || field.checkValidity());
+      });
+    });
+
+    if (!questionValidity) {
+      return false;
     }
-    const requiredText = Array.from(step.querySelectorAll("[data-required-text]"));
-    return requiredText.every((field) => {
+
+    const standaloneFields = Array.from(step.querySelectorAll("[data-required-text]"))
+      .filter((field) => !field.closest("[data-question]"));
+
+    return standaloneFields.every((field) => {
       const hasValue = field.value.trim().length > 0;
       return hasValue && (!field.checkValidity || field.checkValidity());
     });
@@ -161,8 +178,8 @@
     return false;
   }
 
-  function collectChoice(name, multiple = false) {
-    const inputs = Array.from(form.querySelectorAll(`[name="${name}"]:checked`));
+  function collectChoice(scope, name, multiple = false) {
+    const inputs = Array.from(scope.querySelectorAll(`[name="${name}"]:checked`));
     if (!inputs.length) {
       return "";
     }
@@ -179,12 +196,31 @@
   }
 
   function buildPayload() {
+    const responses = Array.from(form.querySelectorAll("[data-question]")).map((question) => {
+      const answerKey = question.dataset.answerKey || "";
+      const requiredGroup = question.dataset.requiredGroup;
+      const allowMultiple = question.dataset.allowMultiple === "true";
+      const labelZh = question.dataset.labelZh || "";
+      const labelEn = question.dataset.labelEn || "";
+      let answer = "";
+
+      if (requiredGroup) {
+        answer = collectChoice(question, requiredGroup, allowMultiple);
+      } else {
+        const field = question.querySelector("[data-required-text]");
+        answer = field ? field.value.trim() : "";
+      }
+
+      return {
+        key: answerKey,
+        labelZh,
+        labelEn,
+        answer,
+      };
+    });
+
     return {
-      rituals: collectChoice("rituals", true),
-      frequency: collectChoice("frequency"),
-      moment: collectChoice("moment"),
-      feedbackCommitment: collectChoice("feedback_commitment"),
-      selfDiscovery: collectText("self_discovery"),
+      responses,
       alias: collectText("alias"),
       email: collectText("email"),
       referralCode: collectText("referral_code"),
