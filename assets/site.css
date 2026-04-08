@@ -1187,6 +1187,54 @@ img {
   font-size: clamp(2.8rem, 4.2vw, 4.4rem);
 }
 
+.home-hero {
+  padding: 82px 0 30px;
+}
+
+.home-hero .page-hero-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.76fr);
+}
+
+.home-hero .page-hero-copy h1 {
+  max-width: none;
+  font-size: clamp(2.4rem, 3.9vw, 4rem);
+  line-height: 0.94;
+}
+
+.home-hero .page-hero-copy p {
+  max-width: 34rem;
+}
+
+.home-story {
+  padding-top: 42px;
+}
+
+.home-story-grid {
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+}
+
+.home-story .story-head h2 {
+  max-width: none;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+}
+
+.home-story-lines .story-line {
+  grid-template-columns: 34px minmax(0, 1fr);
+}
+
+.home-spine .section-head {
+  margin-bottom: 24px;
+}
+
+.founder-focus-grid {
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+}
+
+.founder-focus-copy h2 {
+  max-width: none;
+  font-size: clamp(1.85rem, 3vw, 2.6rem);
+}
+
 .page-section-application-form {
   padding-top: 26px;
 }
@@ -1679,6 +1727,15 @@ img {
     gap: 32px;
   }
 
+  .home-hero .page-hero-inner,
+  .home-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
   .page-hero-display,
   .page-hero-badge {
     justify-self: start;
@@ -1743,6 +1800,10 @@ img {
     padding: 72px 0 24px;
   }
 
+  .home-hero {
+    padding: 72px 0 20px;
+  }
+
   .hero-copy h1,
   .page-hero-copy h1,
   .section-head h2,
@@ -1790,6 +1851,11 @@ img {
 
   .page-hero-art {
     min-height: 300px;
+  }
+
+  .home-hero .page-hero-copy h1 {
+    max-width: 8ch;
+    font-size: clamp(2.9rem, 10.5vw, 4rem);
   }
 
   .page-hero-emblem {
