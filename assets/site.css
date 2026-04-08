@@ -1547,6 +1547,62 @@ img {
   justify-self: center;
 }
 
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.editorial-panel,
+.product-stage-card {
+  padding: 30px;
+  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid rgba(151, 202, 224, 0.14);
+  background:
+    linear-gradient(180deg, rgba(9, 24, 39, 0.88), rgba(5, 14, 23, 0.76)),
+    radial-gradient(circle at 50% 0%, rgba(220, 180, 105, 0.08), transparent 54%);
+  box-shadow: var(--shadow);
+}
+
+.editorial-panel h3,
+.product-stage-card h2 {
+  margin: 14px 0 12px;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  line-height: 0.98;
+  color: var(--text);
+}
+
+.editorial-panel h3 {
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+}
+
+.product-stage-card h2 {
+  font-size: clamp(2.3rem, 3.7vw, 3.1rem);
+}
+
+.editorial-panel p,
+.product-stage-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.product-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.page-hero-manifesto .page-hero-copy h1 {
+  max-width: 10ch;
+}
+
+.page-hero-product .page-hero-copy h1 {
+  max-width: 11ch;
+}
+
 .application-preview {
   margin-top: 18px;
   padding: 18px;
@@ -1571,6 +1627,7 @@ img {
   .journey-grid,
   .founder-grid,
   .founder-focus-grid,
+  .product-story-grid,
   .spine-grid,
   .form-shell,
   .legal-grid,
@@ -1617,7 +1674,8 @@ img {
   }
 
   .page-hero-immersive .page-hero-inner,
-  .founder-rights-grid {
+  .founder-rights-grid,
+  .product-story-grid {
     gap: 32px;
   }
 
@@ -1629,6 +1687,10 @@ img {
   .page-hero-strip {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .editorial-grid {
+    grid-template-columns: 1fr;
   }
 
   .application-criteria {
@@ -1767,6 +1829,11 @@ img {
   .founder-benefit-lines .story-line {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .product-stage-card,
+  .editorial-panel {
+    padding: 26px;
   }
 
   .wizard-actions {
