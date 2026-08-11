@@ -70,7 +70,7 @@ trap 'exit 129' HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
 
-for deploy_command in git npm node tar scp ssh; do
+for deploy_command in git install npm node tar scp ssh; do
   command -v "${deploy_command}" >/dev/null 2>&1 || \
     fail "required command is missing: ${deploy_command}"
 done
@@ -96,14 +96,17 @@ deploy_release_id=${YOUHU_WEBSITE_RELEASE_ID:-${deploy_timestamp}-${deploy_commi
 deploy_tmp_dir=$(mktemp -d "${deploy_tmp_base}/youhu-website-deploy.XXXXXX")
 deploy_archive="${deploy_tmp_dir}/youhu-website-${deploy_release_id}.tar.gz"
 deploy_remote_archive="/tmp/youhu-website-${deploy_release_id}.tar.gz"
+deploy_npm_cache=${npm_config_cache:-${deploy_tmp_dir}/npm-cache}
+install -d -m 0700 "${deploy_npm_cache}"
 
 cd -- "${deploy_repo_root}"
 printf 'Installing locked dependencies...\n'
-npm ci --prefer-offline --no-audit --no-fund
+npm_config_cache="${deploy_npm_cache}" npm_config_update_notifier=false \
+  npm ci --prefer-offline --no-audit --no-fund
 printf 'Running repository verification...\n'
-npm run verify
+npm_config_cache="${deploy_npm_cache}" npm_config_update_notifier=false npm run verify
 printf 'Building the static document root...\n'
-npm run build:static
+npm_config_cache="${deploy_npm_cache}" npm_config_update_notifier=false npm run build:static
 
 [[ -f dist/index.html && -f dist/assets/site.css && -f dist/assets/site.js ]] || \
   fail "static build is incomplete"
