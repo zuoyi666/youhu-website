@@ -65,7 +65,6 @@
   const backButton = form.querySelector("[data-step-back]");
   const nextButton = form.querySelector("[data-step-next]");
   const submitButton = form.querySelector("[data-step-submit]");
-  const progressFill = form.querySelector("[data-progress-fill]");
   const progressCurrent = form.querySelector("[data-progress-current]");
   const progressTotal = form.querySelector("[data-progress-total]");
   const statusBox = document.querySelector("[data-application-status]");
@@ -149,10 +148,7 @@
     steps.forEach((step, idx) => {
       step.classList.toggle("is-active", idx === index);
     });
-    const progress = ((index + 1) / steps.length) * 100;
-    if (progressFill) {
-      progressFill.style.width = `${progress}%`;
-    }
+    form.dataset.progressStep = String(index + 1);
     if (progressCurrent) {
       progressCurrent.textContent = String(index + 1).padStart(2, "0");
     }
@@ -164,10 +160,10 @@
     }
     const isLastStep = index === steps.length - 1;
     if (nextButton) {
-      nextButton.style.display = isLastStep ? "none" : "inline-flex";
+      nextButton.hidden = isLastStep;
     }
     if (submitButton) {
-      submitButton.style.display = isLastStep ? "inline-flex" : "none";
+      submitButton.hidden = !isLastStep;
       submitButton.disabled = isSubmitting;
     }
   }
@@ -267,7 +263,7 @@
       responses,
       alias: collectText("alias"),
       email: collectText("email"),
-      referralCode: collectText("referral_code"),
+      referralCode: collectText("referral_code").toUpperCase(),
       website: collectText("website"),
       lang: currentLang,
     };
@@ -289,10 +285,10 @@
       statusBox.classList.add("is-visible");
     }
     if (retryButton) {
-      retryButton.style.display = kind === "error" ? "inline-flex" : "none";
+      retryButton.hidden = kind !== "error";
     }
     if (foundersLink) {
-      foundersLink.style.display = kind === "success" ? "inline-flex" : "none";
+      foundersLink.hidden = kind !== "success";
     }
   }
 
@@ -305,10 +301,10 @@
       statusBox.classList.remove("is-visible");
     }
     if (retryButton) {
-      retryButton.style.display = "none";
+      retryButton.hidden = true;
     }
     if (foundersLink) {
-      foundersLink.style.display = "none";
+      foundersLink.hidden = true;
     }
   }
 

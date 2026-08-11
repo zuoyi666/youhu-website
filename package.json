@@ -3,6 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "description": "Youhu bilingual founder website",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "verify:static": "node scripts/verify-static-site.js",
+    "verify:deploy": "bash -n ops/deploy.sh",
+    "verify": "npm test && npm run verify:static && npm run verify:deploy",
+    "build:static": "node scripts/build-static-site.js"
+  },
   "dependencies": {
     "nodemailer": "^6.9.16"
   }

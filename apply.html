@@ -7,9 +7,6 @@
   <meta name="description" content="Apply to become one of Youhu's first founders.">
   <meta name="theme-color" content="#05111d">
   <link rel="icon" href="/assets/amber-emblem.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body
@@ -140,7 +137,7 @@
           <p class="lang-en">Twenty questions across six parts. There is no perfect answer, only the shape of how you live with yourself over time.</p>
         </div>
 
-        <form class="form-panel" data-apply-form novalidate>
+        <form class="form-panel" data-apply-form data-progress-step="1" novalidate>
           <div class="progress-track" aria-hidden="true">
             <div class="progress-fill" data-progress-fill></div>
           </div>
@@ -467,7 +464,7 @@
                   <span class="lang-en">19. If Youhu could genuinely help you over the next six months, what change would you most hope it helps you create?</span>
                 </h3>
                 <div class="input-grid">
-                  <textarea class="text-area" name="six_month_change" data-required-text placeholder="不要写功能，而写你希望自己在理解自己、面对情绪、或长期留痕这件事上，会慢慢发生什么变化。"></textarea>
+                  <textarea class="text-area" name="six_month_change" maxlength="4000" data-required-text placeholder="不要写功能，而写你希望自己在理解自己、面对情绪、或长期留痕这件事上，会慢慢发生什么变化。"></textarea>
                 </div>
               </div>
 
@@ -477,7 +474,7 @@
                   <span class="lang-en">20. What kind of founder would you be, and what kind of usage depth or feedback value would you bring?</span>
                 </h3>
                 <div class="input-grid">
-                  <textarea class="text-area" name="founder_contribution" data-required-text placeholder="例如：我会稳定使用、诚实反馈、愿意回看自己的变化，也能把模糊感受慢慢说清楚。"></textarea>
+                  <textarea class="text-area" name="founder_contribution" maxlength="4000" data-required-text placeholder="例如：我会稳定使用、诚实反馈、愿意回看自己的变化，也能把模糊感受慢慢说清楚。"></textarea>
                 </div>
               </div>
             </div>
@@ -500,7 +497,7 @@
                   <span class="lang-zh">昵称 / 代号</span>
                   <span class="lang-en">Alias</span>
                 </label>
-                <input class="text-input" id="alias" name="alias" data-required-text placeholder="No.023 / Night Tide / 你的名字">
+                <input class="text-input" id="alias" name="alias" maxlength="80" data-required-text placeholder="No.023 / Night Tide / 你的名字">
               </div>
               <div class="input-row">
                 <label for="email">
@@ -512,6 +509,7 @@
                   id="email"
                   name="email"
                   type="email"
+                  maxlength="254"
                   inputmode="email"
                   autocomplete="email"
                   data-required-text
@@ -523,16 +521,20 @@
                   <span class="lang-zh">推荐邀请码（选填）</span>
                   <span class="lang-en">Referral code (optional)</span>
                 </label>
-                <input class="text-input" id="referral-code" name="referral_code" placeholder="YH7K2Q">
+                <input class="text-input" id="referral-code" name="referral_code" maxlength="32" pattern="[A-Z0-9-]{4,32}" autocapitalize="characters" placeholder="YH7K2Q">
               </div>
-              <div class="input-row" style="display:none;" aria-hidden="true">
+              <div class="input-row honeypot-field" aria-hidden="true">
                 <label for="website">Website</label>
-                <input class="text-input" id="website" name="website" autocomplete="off" tabindex="-1">
+                <input class="text-input" id="website" name="website" maxlength="200" autocomplete="off" tabindex="-1">
               </div>
             </div>
             <div class="form-note">
-              <span class="lang-zh">整份问卷会直接发送到 `support@youhu.space`。请确认邮箱填写准确，以便我们向你发送后续通知。</span>
-              <span class="lang-en">The full questionnaire will be delivered directly to `support@youhu.space`. Please make sure your email is correct so we can follow up.</span>
+              <span class="lang-zh">整份问卷会直接发送到 support@youhu.space。请确认邮箱填写准确，以便我们向你发送后续通知。</span>
+              <span class="lang-en">The full questionnaire will be delivered directly to support@youhu.space. Please make sure your email is correct so we can follow up.</span>
+              <a href="/privacy">
+                <span class="lang-zh">查看 Founder 申请的隐私说明</span>
+                <span class="lang-en">Read the Founder application privacy notes</span>
+              </a>
             </div>
           </section>
 
@@ -545,7 +547,7 @@
               <span class="lang-zh">下一步</span>
               <span class="lang-en">Next</span>
             </button>
-            <button class="button button-primary" type="submit" data-step-submit style="display:none;">
+            <button class="button button-primary" type="submit" data-step-submit hidden>
               <span class="lang-zh">提交申请</span>
               <span class="lang-en">Submit Application</span>
             </button>
@@ -598,11 +600,11 @@
               <span class="lang-zh">返回首页</span>
               <span class="lang-en">Back Home</span>
             </a>
-            <a class="button button-ghost" href="/founders" data-status-founders>
+            <a class="button button-ghost" href="/founders" data-status-founders hidden>
               <span class="lang-zh">查看创世规则</span>
               <span class="lang-en">View Founder Rules</span>
             </a>
-            <button class="button button-ghost" type="button" data-status-retry style="display:none;">
+            <button class="button button-ghost" type="button" data-status-retry hidden>
               <span class="lang-zh">返回表单</span>
               <span class="lang-en">Back to Form</span>
             </button>
